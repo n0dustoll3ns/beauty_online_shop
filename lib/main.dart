@@ -1,6 +1,6 @@
 import 'package:beauty_online_shop/screens/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:bea';
+import 'constants.dart';
 
 void main() {
   runApp(const MyApp());
