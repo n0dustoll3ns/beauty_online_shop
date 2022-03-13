@@ -12,7 +12,14 @@ class HomeScreen extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {},
+          color: Colors.black54,
         ),
+        actionsIconTheme : IconThemeData(color: Colors.black54,
+),
+        actions: <Widget>[
+          IconButton(onPressed: (){}, icon: Icon(Icons.search))
+          
+        ],
       ),
     );
   }
