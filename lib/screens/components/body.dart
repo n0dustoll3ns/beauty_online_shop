@@ -17,7 +17,8 @@ class Body extends StatelessWidget {
                 .headline5!
                 .copyWith(fontWeight: FontWeight.bold),
           ),
-        )
+        ),
+        Categories(),
       ],
     );
   }
