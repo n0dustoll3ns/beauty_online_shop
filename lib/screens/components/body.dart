@@ -21,15 +21,43 @@ class Body extends StatelessWidget {
           ),
         ),
         Categories(),
+        Expanded(child: GridView.builder(
+          itemCount: PerfumeryProducts.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2), itemBuilder: (context,index) =>ProductCard(press: null, product: null,),
+        ))
+      ],
+    );
+  }
+}
+
+class ProductCard extends StatelessWidget {
+  final Perfumery ?product;
+  final Function ?press;
+  const ProductCard({
+    Key? key, required this.product, required this.press, 
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
         Container(
           padding: EdgeInsets.all(kDefaultPaddin),
           height: 180,
           width: 160,
           decoration: BoxDecoration(
-            color: PerfumeryProducts[0].color,
-            borderRadius: BorderRadius.circular(16)),
+              color: PerfumeryProducts[0].color,
+              borderRadius: BorderRadius.circular(16)),
           child: Image.asset(PerfumeryProducts[0].image),
         ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: kDefaultPaddin / 4),
+          child: Text(
+            PerfumeryProducts[0].title,
+            style: TextStyle(color: kTextLightColor),
+          ),
+        ),
+        Text('₽ ' + PerfumeryProducts[0].price.toString())
       ],
     );
   }

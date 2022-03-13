@@ -25,7 +25,7 @@ class Perfumery {
 List<Perfumery> PerfumeryProducts = [
   Perfumery(
       id: 0,
-      title: 'Creed Aventus for Him Парфюмированная вода 100 мл',
+      title: 'Aventus for Him 100 ml',
       image:
           'assets/images/0.png',
       description:
