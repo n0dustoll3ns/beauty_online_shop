@@ -27,7 +27,7 @@ List<Perfumery> PerfumeryProducts = [
       id: 0,
       title: 'Creed Aventus for Him Парфюмированная вода 100 мл',
       image:
-          'https://api.rivegauche.ru/medias6/3508441001114.jpg?context=bWFzdGVyfGltYWdlc3wxODI4MzV8aW1hZ2UvanBlZ3xoZjMvaGZiLzEwODAyNjA2MDE0NDk0LzM1MDg0NDEwMDExMTQuanBnfDRjNWQxMjViYTllMGJhNDg4YTlkODE2ZTQ4NzI3OGFhN2UzNTFlODg5MjAyOGI1YTBhOGRjZjA0MDJhOTZmYzI',
+          'assets/images/0.png',
       description:
           'Aventus («Крид Авентус») – это аромат для стильных и модных мужчин. Аромат был создан сравнительно недавно, в 2010 году. Парфюмерами его являются: Olivier Creed, Erwin Creed.\n Парфюм принадлежит к группе ароматов шипровые фруктовые. Парфюм Aventus Creed создан под вдохновением от истории жизни Наполеона. В композиции аромата необычно звучат элегантные цветочные компоненты, ненавязчивые фруктовые оттенки и богатая древесная составляющая. Аромат смелый, необыкновенный, оптимистичный, мужественный. Это привлекательный для противоположного пола и вдохновляющий парфюм.\n\nКомпозиция Creed Aventus звучит нотами индийского ананаса, красного яблока, черной смородины и бергамота. Средние ноты представлены розой, листьями пачули, березой и жасмином. Базовые ноты наполнены ванилью, амброй, дубовым мхом и мускусом.',
       price: 24600,

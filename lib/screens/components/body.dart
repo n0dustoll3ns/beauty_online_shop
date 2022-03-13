@@ -22,10 +22,13 @@ class Body extends StatelessWidget {
         ),
         Categories(),
         Container(
+          padding: EdgeInsets.all(kDefaultPaddin),
           height: 180,
           width: 160,
           decoration: BoxDecoration(
-            color: PerfumeryProducts[0].color),
+            color: PerfumeryProducts[0].color,
+            borderRadius: BorderRadius.circular(16)),
+          child: Image.asset(PerfumeryProducts[0].image),
         ),
       ],
     );
