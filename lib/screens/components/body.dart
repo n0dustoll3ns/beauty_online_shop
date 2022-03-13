@@ -41,8 +41,15 @@ class _CategoriesState extends State<Categories> {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: categories.length,
-        itemBuilder: (BuildContext context, int index)=>Text(categories[index]),
+        itemBuilder: (BuildContext context, int index) => buildCategory(index),
       ),
+    );
+  }
+
+  Widget buildCategory(int index) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
+      child: Text(categories[index]),
     );
   }
 }
