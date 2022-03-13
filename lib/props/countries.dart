@@ -17,5 +17,5 @@ class Country {
 List<Country> Countries = [
   Country(id: 0, name: 'Italy'),
   Country(id: 1, name: 'France'),
-  Country(id: 2, name: 'UAE'),
+  Country(id: 2, name: 'Oman'),
 ];
