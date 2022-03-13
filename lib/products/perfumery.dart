@@ -5,6 +5,7 @@ import 'package:beauty_online_shop/props/brands.dart';
 class Perfumery {
   final String image, title, description;
   final int id, price, volume, count;
+  final Color color;
   final Country country;
   final Brand brand;
   Perfumery({
@@ -15,6 +16,7 @@ class Perfumery {
     required this.price,
     required this.volume,
     required this.count,
+    required this.color,
     required this.country,
     required this.brand,
   });
@@ -31,6 +33,7 @@ List<Perfumery> PerfumeryProducts = [
       price: 24600,
       volume: 100,
       count: 3,
+      color: Colors.black26,
       country: Country.fromID(1),
       brand: Brand.fromID(0)),
   Perfumery(
@@ -43,11 +46,12 @@ List<Perfumery> PerfumeryProducts = [
       price: 18600,
       volume: 50,
       count: 4,
+      color: Colors.black26,
       country: Country.fromID(1),
       brand: Brand.fromID(0)),
   Perfumery(
       id: 2,
-      title: 'Creed Aventus for Him Парфюмированная вода 100 мл',
+      title: 'Creed Viking Парфюмированная вода 100 мл',
       image:
           'https://camilladeluxe.ru/upload/resize_cache/iblock/f81/450_450_140cd750bba9870f18aada2478b24840a/f81e54390641f55f0ec480f6973f185f.jpg',
       description:
@@ -55,6 +59,7 @@ List<Perfumery> PerfumeryProducts = [
       price: 29600,
       volume: 50,
       count: 5,
+      color: Colors.redAccent,
       country: Country.fromID(1),
       brand: Brand.fromID(0)),
   Perfumery(
@@ -67,6 +72,7 @@ List<Perfumery> PerfumeryProducts = [
       price: 16600,
       volume: 50,
       count: 6,
+      color: Colors.redAccent,
       country: Country.fromID(1),
       brand: Brand.fromID(0)),
   Perfumery(
@@ -80,6 +86,7 @@ List<Perfumery> PerfumeryProducts = [
       price: 24600,
       volume: 100,
       count: 22,
+      color: Colors.orange,
       country: Country.fromID(1),
       brand: Brand.fromID(0)),
   Perfumery(
@@ -92,6 +99,7 @@ List<Perfumery> PerfumeryProducts = [
       price: 27500,
       volume: 75,
       count: 12,
+      color: Colors.deepOrange,
       country: Country.fromID(1),
       brand: Brand.fromID(3)),
   Perfumery(
@@ -104,6 +112,7 @@ List<Perfumery> PerfumeryProducts = [
       price: 22917,
       volume: 75,
       count: 8,
+      color: Colors.deepPurpleAccent,
       country: Country.fromID(1),
       brand: Brand.fromID(3)),
   Perfumery(
@@ -116,6 +125,7 @@ List<Perfumery> PerfumeryProducts = [
       price: 31000,
       volume: 100,
       count: 3,
+      color: Colors.yellow,
       country: Country.fromID(2),
       brand: Brand.fromID(1)),
 ];

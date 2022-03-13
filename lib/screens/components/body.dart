@@ -1,4 +1,5 @@
 import 'package:beauty_online_shop/constants.dart';
+import 'package:beauty_online_shop/products/perfumery.dart';
 import 'package:flutter/material.dart';
 
 class Body extends StatelessWidget {
@@ -20,6 +21,12 @@ class Body extends StatelessWidget {
           ),
         ),
         Categories(),
+        Container(
+          height: 180,
+          width: 160,
+          decoration: BoxDecoration(
+            color: PerfumeryProducts[0].color),
+        ),
       ],
     );
   }
@@ -48,22 +55,35 @@ class _CategoriesState extends State<Categories> {
   }
 
   Widget buildCategory(int index) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            categories[index],
-            style: TextStyle(fontWeight: FontWeight.bold, color: kTextColor),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: kDefaultPaddin/4),//top padding
-            height: 2,
-            width: 30,
-            color: Colors.black,
-          ),
-        ],
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _selectedCategory = index;
+        });
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              categories[index],
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: _selectedCategory == index
+                      ? kTextColor
+                      : kTextLightColor),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: kDefaultPaddin / 4), //top padding
+              height: 2,
+              width: 30,
+              color: _selectedCategory == index
+                  ? Colors.black
+                  : Colors.transparent,
+            ),
+          ],
+        ),
       ),
     );
   }
