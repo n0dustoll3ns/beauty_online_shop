@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:beauty_online_shop/constants.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -6,21 +7,30 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: buildAppBar(),
+    );
+  }
+}
+
+AppBar buildAppBar(){
+  return       AppBar(: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {},
-          color: Colors.black54,
+          color: kTextColor,
         ),
-        actionsIconTheme : IconThemeData(color: Colors.black54,
-),
+        actionsIconTheme: IconThemeData(
+          color: kTextColor,
+        ),
         actions: <Widget>[
-          IconButton(onPressed: (){}, icon: Icon(Icons.search))
-          
+          IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+          IconButton(onPressed: () {}, icon: Icon(Icons.shopping_bag_outlined)),
+          SizedBox(
+            width: kDefaultPaddin / 2,
+          ),
         ],
       ),
-    );
-  }
+  )
 }
