@@ -21,9 +21,15 @@ class Body extends StatelessWidget {
           ),
         ),
         Categories(),
-        Expanded(child: GridView.builder(
+        Expanded(
+            child: GridView.builder(
           itemCount: PerfumeryProducts.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2), itemBuilder: (context,index) =>ProductCard(press: null, product: null,),
+          gridDelegate:
+              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+          itemBuilder: (context, index) => ProductCard(
+            press: null,
+            product: null,
+          ),
         ))
       ],
     );
@@ -31,10 +37,12 @@ class Body extends StatelessWidget {
 }
 
 class ProductCard extends StatelessWidget {
-  final Perfumery ?product;
-  final Function ?press;
+  final Perfumery? product;
+  final Function? press;
   const ProductCard({
-    Key? key, required this.product, required this.press, 
+    Key? key,
+    required this.product,
+    required this.press,
   }) : super(key: key);
 
   @override
