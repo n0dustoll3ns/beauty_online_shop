@@ -16,4 +16,5 @@ List<Brand> Brands = [
   Brand(id: 0,name: 'Creed'),
   Brand(id: 1,name: 'Amouage'),
   Brand(id: 2,name: 'Afnan'),
+  Brand(id: 3,name: 'Memo'),
 ];
