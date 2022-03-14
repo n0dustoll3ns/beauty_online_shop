@@ -1,9 +1,9 @@
+import 'package:beauty_online_shop/screens/details/detailScreen.dart';
+import 'package:flutter/material.dart';
 import 'package:beauty_online_shop/constants.dart';
 import 'package:beauty_online_shop/products/perfumery.dart';
-import 'package:beauty_online_shop/screens/details/detailScreen.dart';
 import 'categories.dart';
 import 'item_card.dart';
-import 'package:flutter/material.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
@@ -36,11 +36,16 @@ class Body extends StatelessWidget {
               mainAxisSpacing: kDefaultPaddin,
             ),
             itemBuilder: (context, index) => ProductCard(
-                press: () => Navigator.push(
+                press: () {
+                  Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            DetailPage(product: perfumery_products[index]))),
+                      builder: (context) => DetailPage(
+                        product: perfumery_products[index],
+                      ),
+                    ),
+                  );
+                },
                 product: perfumery_products[index]),
           ),
         ))
@@ -48,4 +53,3 @@ class Body extends StatelessWidget {
     );
   }
 }
-

@@ -14,15 +14,13 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: press(),
+      onTap: ,
       child: Column(
         children: <Widget>[
           AspectRatio(
             aspectRatio: 1 / 1,
             child: Container(
               padding: EdgeInsets.all(kDefaultPaddin),
-              // height: 180,
-              // width: 160,
               decoration: BoxDecoration(
                   color: product.color, borderRadius: BorderRadius.circular(16)),
               child: Image.asset(product.image),
