@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:beauty_online_shop/constants.dart';
+import '../../../constants.dart';
 import 'package:beauty_online_shop/products/perfumery.dart';
 
 class ProductCard extends StatelessWidget {

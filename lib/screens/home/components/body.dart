@@ -25,30 +25,31 @@ class Body extends StatelessWidget {
         ),
         Categories(),
         Expanded(
-            child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
-          child: GridView.builder(
-            itemCount: perfumery_products.length,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              childAspectRatio: 0.72,
-              crossAxisSpacing: kDefaultPaddin,
-              mainAxisSpacing: kDefaultPaddin,
-            ),
-            itemBuilder: (context, index) => ProductCard(
-                press: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => DetailPage(
-                        product: perfumery_products[index],
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
+            child: GridView.builder(
+              itemCount: perfumery_products.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 0.72,
+                crossAxisSpacing: kDefaultPaddin,
+                mainAxisSpacing: kDefaultPaddin,
+              ),
+              itemBuilder: (context, index) => ProductCard(
+                  press: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailPage(
+                          product: perfumery_products[index],
+                        ),
                       ),
-                    ),
-                  );
-                },
-                product: perfumery_products[index]),
+                    );
+                  },
+                  product: perfumery_products[index]),
+            ),
           ),
-        ))
+        ),
       ],
     );
   }
