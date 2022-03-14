@@ -22,15 +22,22 @@ class Body extends StatelessWidget {
         ),
         Categories(),
         Expanded(
-            child: GridView.builder(
-          itemCount: PerfumeryProducts.length,
-          gridDelegate:
-              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-          itemBuilder: (context, index) => ProductCard(
-            press: null,
-            product: null,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
+              child: GridView.builder(
+          itemCount: perfumery_products.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 0.75,
+              crossAxisSpacing: kDefaultPaddin,
+              mainAxisSpacing: kDefaultPaddin,
           ),
-        ))
+          itemBuilder: (context, index) => ProductCard(
+              press: null,
+              product: perfumery_products[index],
+          ),
+        ),
+            ))
       ],
     );
   }
@@ -51,21 +58,21 @@ class ProductCard extends StatelessWidget {
       children: <Widget>[
         Container(
           padding: EdgeInsets.all(kDefaultPaddin),
-          height: 180,
-          width: 160,
+          // height: 180,
+          // width: 160,
           decoration: BoxDecoration(
-              color: PerfumeryProducts[0].color,
+              color: perfumery_products[0].color,
               borderRadius: BorderRadius.circular(16)),
-          child: Image.asset(PerfumeryProducts[0].image),
+          child: Image.asset(perfumery_products[0].image),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: kDefaultPaddin / 4),
           child: Text(
-            PerfumeryProducts[0].title,
+            perfumery_products[0].title,
             style: TextStyle(color: kTextLightColor),
           ),
         ),
-        Text('₽ ' + PerfumeryProducts[0].price.toString())
+        Text('₽ ' + perfumery_products[0].price.toString())
       ],
     );
   }

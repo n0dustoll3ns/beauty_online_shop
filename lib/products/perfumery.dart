@@ -22,7 +22,7 @@ class Perfumery {
   });
 }
 
-List<Perfumery> PerfumeryProducts = [
+List<Perfumery> perfumery_products = [
   Perfumery(
       id: 0,
       title: 'Aventus for Him 100 ml',
