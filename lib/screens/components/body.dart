@@ -61,7 +61,7 @@ class ProductCard extends StatelessWidget {
           // height: 180,
           // width: 160,
           decoration: BoxDecoration(
-              color: perfumery_products[0].color,
+              color: product.color,
               borderRadius: BorderRadius.circular(16)),
           child: Image.asset(perfumery_products[0].image),
         ),
