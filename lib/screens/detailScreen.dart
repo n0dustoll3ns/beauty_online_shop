@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:beauty_online_shop/products/perfumery.dart';
 
 class DetailPage extends StatelessWidget {
-  const DetailPage({ Key? key }) : super(key: key);
-
+  final Perfumery product;
+  const DetailPage({Key? key, required this.product}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
-    );
+    return Container();
   }
 }
