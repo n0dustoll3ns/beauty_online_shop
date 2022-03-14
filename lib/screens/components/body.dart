@@ -44,7 +44,7 @@ class Body extends StatelessWidget {
 }
 
 class ProductCard extends StatelessWidget {
-  final Perfumery? product;
+  final Perfumery product;
   final Function? press;
   const ProductCard({
     Key? key,
