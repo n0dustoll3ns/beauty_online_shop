@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:beauty_online_shop/constants.dart';
-import 'package:beauty_online_shop/screens/components/body.dart';
+import 'components/body.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
