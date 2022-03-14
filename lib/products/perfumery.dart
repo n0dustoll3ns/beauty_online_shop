@@ -25,7 +25,7 @@ class Perfumery {
 List<Perfumery> perfumery_products = [
   Perfumery(
       id: 0,
-      title: 'Aventus for Him 100 ml',
+      title: 'Creed Aventus for Him 100 ml',
       image:
           'assets/images/0.png',
       description:
@@ -38,7 +38,7 @@ List<Perfumery> perfumery_products = [
       brand: Brand.fromID(0)),
   Perfumery(
       id: 1,
-      title: 'Creed Aventus for Him Парфюмированная вода 50 мл',
+      title: 'Creed Aventus for Him 50 ml',
       image:
           'assets/images/1.png',
       description:
@@ -51,7 +51,7 @@ List<Perfumery> perfumery_products = [
       brand: Brand.fromID(0)),
   Perfumery(
       id: 2,
-      title: 'Creed Viking Парфюмированная вода 100 мл',
+      title: 'Creed Viking 100 ml',
       image:
           'assets/images/2.png',
       description:
@@ -64,7 +64,7 @@ List<Perfumery> perfumery_products = [
       brand: Brand.fromID(0)),
   Perfumery(
       id: 3,
-      title: 'Creed Viking Парфюмированная вода 50 мл',
+      title: 'Creed Viking 50 ml',
       image:
           'assets/images/3.png',
       description:
@@ -78,7 +78,7 @@ List<Perfumery> perfumery_products = [
   Perfumery(
       id: 4,
       title:
-          'Creed Acqua Originale Citrus Bigarade Парфюмированная вода 100 мл',
+          'Creed Acqua Originale Citrus Bigarade 100 ml',
       image:
           'assets/images/4.png',
       description:
@@ -91,7 +91,7 @@ List<Perfumery> perfumery_products = [
       brand: Brand.fromID(0)),
   Perfumery(
       id: 5,
-      title: 'Memo French Leather Парфюмированная вода 75 мл',
+      title: 'Memo French Leather 75 ml',
       image:
           'assets/images/5.png',
       description:
@@ -104,7 +104,7 @@ List<Perfumery> perfumery_products = [
       brand: Brand.fromID(3)),
   Perfumery(
       id: 6,
-      title: 'Memo Sicilian Leather Парфюмированная вода 75 мл',
+      title: 'Memo Sicilian Leather 75 ml',
       image:
           'assets/images/6.png',
       description:
@@ -117,7 +117,7 @@ List<Perfumery> perfumery_products = [
       brand: Brand.fromID(3)),
   Perfumery(
       id: 6,
-      title: 'Amouage Imitation Man Парфюмированная вода 100 мл',
+      title: 'Amouage Imitation Man 100 ml',
       image:
           'assets/images/7.png',
       description:

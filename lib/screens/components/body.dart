@@ -23,21 +23,21 @@ class Body extends StatelessWidget {
         Categories(),
         Expanded(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
-              child: GridView.builder(
-          itemCount: perfumery_products.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
+          child: GridView.builder(
+            itemCount: perfumery_products.length,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              childAspectRatio: 0.75,
+              childAspectRatio: 0.72,
               crossAxisSpacing: kDefaultPaddin,
               mainAxisSpacing: kDefaultPaddin,
-          ),
-          itemBuilder: (context, index) => ProductCard(
+            ),
+            itemBuilder: (context, index) => ProductCard(
               press: null,
               product: perfumery_products[index],
+            ),
           ),
-        ),
-            ))
+        ))
       ],
     );
   }
@@ -56,23 +56,27 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Container(
-          padding: EdgeInsets.all(kDefaultPaddin),
-          // height: 180,
-          // width: 160,
-          decoration: BoxDecoration(
-              color: product.color,
-              borderRadius: BorderRadius.circular(16)),
-          child: Image.asset(perfumery_products[0].image),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: kDefaultPaddin / 4),
-          child: Text(
-            perfumery_products[0].title,
-            style: TextStyle(color: kTextLightColor),
+        AspectRatio(
+          aspectRatio: 1/1,
+          child: Container(
+            padding: EdgeInsets.all(kDefaultPaddin),
+            // height: 180,
+            // width: 160,
+            decoration: BoxDecoration(
+                color: product.color, borderRadius: BorderRadius.circular(16)),
+            child: Image.asset(product.image),
           ),
         ),
-        Text('₽ ' + perfumery_products[0].price.toString())
+        Container(
+          padding: const EdgeInsets.symmetric(vertical: kDefaultPaddin / 4),
+          child: Text(
+            product.title,
+            textAlign: TextAlign.center,
+            style: TextStyle(color: kTextLightColor,
+            ),
+          ),
+        ),
+        Text('₽ ' + product.price.toString())
       ],
     );
   }
