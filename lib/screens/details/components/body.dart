@@ -28,7 +28,7 @@ class Body extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: kDefaultPaddin),
+                SizedBox(width: kDefaultPaddin),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: kDefaultPaddin),
                   child: Column(
@@ -40,10 +40,11 @@ class Body extends StatelessWidget {
                       ),
                       Text(
                         product.title,
+                        maxLines: 1,
+                        overflow: TextOverflow.fade,
                         style: Theme.of(context).textTheme.headline4!.copyWith(
                             color: Colors.white, fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(height: kDefaultPaddin),
                       Row(
                         children: [
                           RichText(
