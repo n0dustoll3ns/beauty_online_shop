@@ -40,15 +40,16 @@ class Body extends StatelessWidget {
                             children: [
                               const Text('Value'),
                               Container(
+                                margin: EdgeInsets.all(kDefaultPaddin/4),
+                                padding: EdgeInsets.all(2.5),
                                 child: Text(
                                   product.volume.toString(),
                                   textScaleFactor: 0.8,
                                   textAlign: TextAlign.center,
                                 ),
-                                height: 24,
-                                width: 24,
+                                width: 28,
                                 decoration: BoxDecoration(
-                                  shape: BoxShape.rectangle,
+                                  borderRadius: BorderRadius.circular(4),
                                   border: Border.all(
                                     color: Color(0XFF000000),
                                   ),
