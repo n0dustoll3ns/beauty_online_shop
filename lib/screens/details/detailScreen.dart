@@ -12,9 +12,13 @@ class DetailPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: product.color,
         elevation: 0,
-      actions: [
-        
-      ],
+      actions: <Widget>[
+      IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+      IconButton(onPressed: () {}, icon: Icon(Icons.shopping_bag_outlined)),
+      SizedBox(
+        width: kDefaultPaddin / 2,
+      ),
+    ],
       ),
     );
   }
