@@ -5,9 +5,10 @@ import 'package:beauty_online_shop/products/perfumery.dart';
 
 class Body extends StatelessWidget {
   final Perfumery product;
+  
   const Body({Key? key, required this.product}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SingleChildScrollView();
   }
 }
