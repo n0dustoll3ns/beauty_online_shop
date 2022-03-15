@@ -1,7 +1,7 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import '../../../constants.dart';
 import 'package:beauty_online_shop/products/perfumery.dart';
+import 'product_title_with_image.dart';
 
 class Body extends StatelessWidget {
   final Perfumery product;
