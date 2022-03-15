@@ -40,8 +40,11 @@ class Body extends StatelessWidget {
                             children: [
                               const Text('Value'),
                               Container(
-                                margin: EdgeInsets.all(kDefaultPaddin/4),
-                                padding: EdgeInsets.all(2.5),
+                                margin: const EdgeInsets.only(
+                                  top: kDefaultPaddin / 4,
+                                  right: kDefaultPaddin / 2,
+                                ),
+                                padding: const EdgeInsets.all(2.5),
                                 child: Text(
                                   product.volume.toString(),
                                   textScaleFactor: 0.8,
