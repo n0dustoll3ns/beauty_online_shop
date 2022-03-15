@@ -40,6 +40,11 @@ class Body extends StatelessWidget {
                             children: [
                               const Text('Value'),
                               Container(
+                                child: Text(
+                                  product.volume.toString(),
+                                  textScaleFactor: 0.8,
+                                  textAlign: TextAlign.center,
+                                ),
                                 height: 24,
                                 width: 24,
                                 decoration: BoxDecoration(

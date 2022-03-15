@@ -33,7 +33,7 @@ List<Perfumery> perfumery_products = [
       price: 24600,
       volume: 100,
       count: 3,
-      color: Colors.grey,
+      color: Color(0XFFcccccc),
       country: Country.fromID(1),
       brand: Brand.fromID(0)),
   Perfumery(
@@ -46,7 +46,7 @@ List<Perfumery> perfumery_products = [
       price: 18600,
       volume: 50,
       count: 4,
-      color: Colors.grey,
+      color: Color(0XFFcccccc),
       country: Country.fromID(1),
       brand: Brand.fromID(0)),
   Perfumery(
@@ -59,7 +59,7 @@ List<Perfumery> perfumery_products = [
       price: 29600,
       volume: 50,
       count: 5,
-      color: Colors.redAccent,
+      color: Color(0XFFffcccc),
       country: Country.fromID(1),
       brand: Brand.fromID(0)),
   Perfumery(
@@ -72,7 +72,7 @@ List<Perfumery> perfumery_products = [
       price: 16600,
       volume: 50,
       count: 6,
-      color: Colors.redAccent,
+      color: Color(0XFFffcccc),
       country: Country.fromID(1),
       brand: Brand.fromID(0)),
   Perfumery(
@@ -86,7 +86,7 @@ List<Perfumery> perfumery_products = [
       price: 24600,
       volume: 100,
       count: 22,
-      color: Colors.orange,
+      color: Color(0XFFcccccc),
       country: Country.fromID(1),
       brand: Brand.fromID(0)),
   Perfumery(
@@ -99,7 +99,7 @@ List<Perfumery> perfumery_products = [
       price: 27500,
       volume: 75,
       count: 12,
-      color: Colors.deepOrange,
+      color: Color(0XFFcccccc),
       country: Country.fromID(1),
       brand: Brand.fromID(3)),
   Perfumery(
@@ -112,7 +112,7 @@ List<Perfumery> perfumery_products = [
       price: 22917,
       volume: 75,
       count: 8,
-      color: Colors.deepPurpleAccent,
+      color: Color(0XFFcccccc),
       country: Country.fromID(1),
       brand: Brand.fromID(3)),
   Perfumery(
@@ -125,7 +125,7 @@ List<Perfumery> perfumery_products = [
       price: 31000,
       volume: 100,
       count: 3,
-      color: Colors.yellow,
+      color: Color(0XFFcccccc),
       country: Country.fromID(2),
       brand: Brand.fromID(1)),
 ];
