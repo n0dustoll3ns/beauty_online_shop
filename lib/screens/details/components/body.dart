@@ -28,6 +28,7 @@ class Body extends StatelessWidget {
                     ),
                   ),
                 ),
+                SizedBox(height: kDefaultPaddin),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: kDefaultPaddin),
                   child: Column(
@@ -42,6 +43,7 @@ class Body extends StatelessWidget {
                         style: Theme.of(context).textTheme.headline4!.copyWith(
                             color: Colors.white, fontWeight: FontWeight.bold),
                       ),
+                      SizedBox(height: kDefaultPaddin),
                       Row(
                         children: [
                           RichText(
@@ -62,7 +64,10 @@ class Body extends StatelessWidget {
                           ),
                           SizedBox(width: kDefaultPaddin),
                           Expanded(
-                            child: Image.asset(product.image),
+                            child: Image.asset(
+                              product.image,
+                              fit: BoxFit.fill,
+                            ),
                           ),
                         ],
                       ),
