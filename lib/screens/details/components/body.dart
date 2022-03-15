@@ -19,8 +19,8 @@ class Body extends StatelessWidget {
               children: <Widget>[
                 Container(
                   margin: EdgeInsets.only(top: size.height * 0.3),
-                  height: 400,
-                  decoration: BoxDecoration(
+                  height: 500,
+                  decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
                       topRight: Radius.circular(35),
@@ -28,13 +28,13 @@ class Body extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: kDefaultPaddin),
+                const SizedBox(height: kDefaultPaddin),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: kDefaultPaddin),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(
+                      const Text(
                         'Парфюмированная вода',
                         style: TextStyle(color: Colors.white),
                       ),
