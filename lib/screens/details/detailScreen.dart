@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../constants.dart';
 import 'package:beauty_online_shop/products/perfumery.dart';
 
 class DetailPage extends StatelessWidget {
