@@ -12,6 +12,9 @@ class DetailPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: product.color,
         elevation: 0,
+      actions: [
+        
+      ],
       ),
     );
   }
