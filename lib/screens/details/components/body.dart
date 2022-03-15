@@ -19,6 +19,11 @@ class Body extends StatelessWidget {
               children: <Widget>[
                 Container(
                   margin: EdgeInsets.only(top: size.height * 0.3),
+                  padding: EdgeInsets.only(
+                    top: size.height * 0.12,
+                    left: kDefaultPaddin,
+                    right: kDefaultPaddin,
+                  ),
                   height: 500,
                   decoration: const BoxDecoration(
                     color: Colors.white,
@@ -26,6 +31,29 @@ class Body extends StatelessWidget {
                       topRight: Radius.circular(35),
                       topLeft: Radius.circular(35),
                     ),
+                  ),
+                  child: Column(
+                    children: <Widget>[
+                      Row(
+                        children: [
+                          Column(
+                            children: [
+                              const Text('Value'),
+                              Container(
+                                height: 24,
+                                width: 24,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.rectangle,
+                                  border: Border.all(
+                                    color: Color(0XFF000000),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
                 ProductTitleWithImage(product: product),
@@ -37,4 +65,3 @@ class Body extends StatelessWidget {
     );
   }
 }
-
