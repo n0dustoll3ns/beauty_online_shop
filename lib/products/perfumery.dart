@@ -33,7 +33,7 @@ List<Perfumery> perfumery_products = [
       price: 24600,
       volume: 100,
       count: 3,
-      color: Colors.black26,
+      color: Colors.grey,
       country: Country.fromID(1),
       brand: Brand.fromID(0)),
   Perfumery(
@@ -46,7 +46,7 @@ List<Perfumery> perfumery_products = [
       price: 18600,
       volume: 50,
       count: 4,
-      color: Colors.black26,
+      color: Colors.grey,
       country: Country.fromID(1),
       brand: Brand.fromID(0)),
   Perfumery(
