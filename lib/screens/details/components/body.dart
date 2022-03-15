@@ -39,25 +39,7 @@ class Body extends StatelessWidget {
                           Column(
                             children: [
                               const Text('Value'),
-                              Container(
-                                margin: const EdgeInsets.only(
-                                  top: kDefaultPaddin / 4,
-                                  right: kDefaultPaddin / 2,
-                                ),
-                                padding: const EdgeInsets.all(2.5),
-                                child: Text(
-                                  product.volume.toString(),
-                                  textScaleFactor: 0.8,
-                                  textAlign: TextAlign.center,
-                                ),
-                                width: 28,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(4),
-                                  border: Border.all(
-                                    color: Color(0XFF000000),
-                                  ),
-                                ),
-                              ),
+                              ValueDot(product: product),
                             ],
                           ),
                         ],
@@ -70,6 +52,45 @@ class Body extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class ValueDot extends StatefulWidget {
+  const ValueDot({
+    Key? key,
+    required this.product,
+  }) : super(key: key);
+
+  final Perfumery product;
+
+  @override
+  State<ValueDot> createState() => _ValueDotState();
+}
+
+class _ValueDotState extends State<ValueDot> {
+  final int _selectedIndex = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(
+        top: kDefaultPaddin / 4,
+        right: kDefaultPaddin / 2,
+      ),
+      padding: const EdgeInsets.all(2.5),
+      child: Text(
+        widget.product.volume.toString(),
+        textScaleFactor: 0.8,
+        textAlign: TextAlign.center,
+      ),
+      width: 28,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(4),
+        border: Border.all(
+          color: Color(0XFF000000),
+        ),
       ),
     );
   }
