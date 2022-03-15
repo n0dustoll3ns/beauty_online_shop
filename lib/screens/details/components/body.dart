@@ -29,8 +29,9 @@ class Body extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: kDefaultPaddin),
+                  padding: EdgeInsets.symmetric(horizontal: kDefaultPaddin),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
                         'Парфюмированная вода',
@@ -38,6 +39,8 @@ class Body extends StatelessWidget {
                       ),
                       Text(
                         product.title,
+                        style: Theme.of(context).textTheme.headline4!.copyWith(
+                            color: Colors.white, fontWeight: FontWeight.bold),
                       )
                     ],
                   ),
