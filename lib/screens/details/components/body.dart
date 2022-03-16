@@ -39,25 +39,9 @@ class Body extends StatelessWidget {
                           Column(
                             children: [
                               const Text('Value'),
-                              Container(
-                                margin: const EdgeInsets.only(
-                                  top: kDefaultPaddin / 4,
-                                  right: kDefaultPaddin / 2,
-                                ),
-                                padding: const EdgeInsets.all(2.5),
-                                child: Text(
-                                  product.volume.toString(),
-                                  textScaleFactor: 0.8,
-                                  textAlign: TextAlign.center,
-                                ),
-                                width: 28,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(4),
-                                  border: Border.all(
-                                    color: Color(0XFF000000),
-                                  ),
-                                ),
-                              ),
+                              ValueDot(product: product, isSelected: false, value: 100,),
+                              ValueDot(product: product, isSelected: true, value: 50,),
+                              ValueDot(product: product, isSelected: false, value: 75,),
                             ],
                           ),
                         ],
@@ -70,6 +54,40 @@ class Body extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class ValueDot extends StatelessWidget {
+  final int value;
+  final bool isSelected;
+  const ValueDot({
+    Key? key,
+    required this.product, required this.value, required this.isSelected,
+  }) : super(key: key);
+
+  final Perfumery product;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(
+        top: kDefaultPaddin / 4,
+        right: kDefaultPaddin / 2,
+      ),
+      padding: const EdgeInsets.all(2.5),
+      child: Text(
+        product.volume.toString(),
+        textScaleFactor: 0.8,
+        textAlign: TextAlign.center,
+      ),
+      width: 28,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(4),
+        border: Border.all(
+          color: Color(0XFF000000),
+        ),
       ),
     );
   }
