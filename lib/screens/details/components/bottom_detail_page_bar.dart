@@ -25,9 +25,9 @@ class BottomDetailPageBar extends StatelessWidget {
               border: Border.all(color: product.color),
             ),
             child: IconButton(
-              color: product.color,
+              color: Colors.black,
               onPressed: null,
-              icon: Icon(Icons.shopping_bag),
+              icon: Icon(Icons.add_shopping_cart_rounded),
             ),
           ),
         ],
