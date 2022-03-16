@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../constants.dart';
 import 'package:beauty_online_shop/products/perfumery.dart';
+import 'description.dart';
 import 'product_title_with_image.dart';
 import 'props_layout.dart';
 
@@ -39,7 +40,7 @@ class Body extends StatelessWidget {
                   child: Column(
                     children: <Widget>[
                       PropsLayout(product: product),
-                      Text('${product.description}'),
+                      Description(product: product),
                     ],
                   ),
                 ),
@@ -52,6 +53,8 @@ class Body extends StatelessWidget {
     );
   }
 }
+
+
 
 class VolumeDot extends StatelessWidget {
   final int volume;
