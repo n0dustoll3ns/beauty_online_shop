@@ -60,9 +60,14 @@ class _CartCounterState extends State<CartCounter> {
           color: Colors.black54,
         ),
         style: ButtonStyle(
-            shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12.0),
-                side: BorderSide(color: Colors.black54)))),
+          padding: MaterialStateProperty.all(EdgeInsets.zero),
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
+              side: BorderSide(color: Colors.black54),
+            ),
+          ),
+        ),
       ),
     );
   }
