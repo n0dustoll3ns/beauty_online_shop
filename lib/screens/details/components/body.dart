@@ -29,7 +29,6 @@ class Body extends StatelessWidget {
                     left: kDefaultPaddin,
                     right: kDefaultPaddin,
                   ),
-                  height: 500,
                   decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
@@ -40,6 +39,7 @@ class Body extends StatelessWidget {
                   child: Column(
                     children: <Widget>[
                       PropsLayout(product: product),
+                      Text('${product.description}'),
                     ],
                   ),
                 ),
