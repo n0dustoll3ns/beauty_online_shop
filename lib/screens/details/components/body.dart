@@ -70,6 +70,7 @@ class ValueDot extends StatefulWidget {
 }
 
 class _ValueDotState extends State<ValueDot> {
+  List<int> Values = [50,75,100];
   final int _selectedIndex = 0;
 
   @override
