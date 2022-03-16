@@ -67,16 +67,19 @@ class Body extends StatelessWidget {
                               ],
                             ),
                           ),
-                          RichText(
-                            text: TextSpan(
-                              style: TextStyle(color: kTextColor),
-                              children: [
-                                TextSpan(text: "Concentration\n"),
-                                TextSpan(
-                                  text: '${product.brand.name}',
-                                  style: Theme.of(context).textTheme.headline6!,
-                                ),
-                              ],
+                          Expanded(
+                            child: RichText(
+                              text: TextSpan(
+                                style: TextStyle(color: kTextColor),
+                                children: [
+                                  TextSpan(text: "Brand\n"),
+                                  TextSpan(
+                                    text: '${product.brand.name}',
+                                    style:
+                                        Theme.of(context).textTheme.headline6!,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ],
