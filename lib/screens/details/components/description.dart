@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import '../../../constants.dart';
 import '../../../products/perfumery.dart';
 
 class Description extends StatelessWidget {
