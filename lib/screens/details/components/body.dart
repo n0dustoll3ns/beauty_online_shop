@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../constants.dart';
 import 'package:beauty_online_shop/products/perfumery.dart';
 import 'product_title_with_image.dart';
+import 'props_layout.dart';
 
 class Body extends StatelessWidget {
   const Body({
@@ -38,52 +39,7 @@ class Body extends StatelessWidget {
                   ),
                   child: Column(
                     children: <Widget>[
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('Volume'),
-                                Row(
-                                  children: [
-                                    VolumeDot(
-                                      isSelected: false,
-                                      volume: 50,
-                                      product: product,
-                                    ),
-                                    VolumeDot(
-                                      isSelected: true,
-                                      volume: 75,
-                                      product: product,
-                                    ),
-                                    VolumeDot(
-                                      isSelected: false,
-                                      volume: 100,
-                                      product: product,
-                                    ),
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                          Expanded(
-                            child: RichText(
-                              text: TextSpan(
-                                style: TextStyle(color: kTextColor),
-                                children: [
-                                  TextSpan(text: "Brand\n"),
-                                  TextSpan(
-                                    text: '${product.brand.name}',
-                                    style:
-                                        Theme.of(context).textTheme.headline6!,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                      PropsLayout(product: product),
                     ],
                   ),
                 ),
