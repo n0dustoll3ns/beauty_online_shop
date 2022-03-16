@@ -39,9 +39,21 @@ class Body extends StatelessWidget {
                           Column(
                             children: [
                               const Text('Value'),
-                              ValueDot(product: product, isSelected: false, value: 100,),
-                              ValueDot(product: product, isSelected: true, value: 50,),
-                              ValueDot(product: product, isSelected: false, value: 75,),
+                              ValueDot(
+                                product: product,
+                                isSelected: false,
+                                value: 50,
+                              ),
+                              ValueDot(
+                                product: product,
+                                isSelected: true,
+                                value: 75,
+                              ),
+                              ValueDot(
+                                product: product,
+                                isSelected: false,
+                                value: 100,
+                              ),
                             ],
                           ),
                         ],
@@ -64,7 +76,9 @@ class ValueDot extends StatelessWidget {
   final bool isSelected;
   const ValueDot({
     Key? key,
-    required this.product, required this.value, required this.isSelected,
+    required this.product,
+    required this.value,
+    required this.isSelected,
   }) : super(key: key);
 
   final Perfumery product;
@@ -81,9 +95,12 @@ class ValueDot extends StatelessWidget {
         product.volume.toString(),
         textScaleFactor: 0.8,
         textAlign: TextAlign.center,
+        style:
+            TextStyle(color: isSelected == true ? Colors.white : Colors.black),
       ),
       width: 28,
       decoration: BoxDecoration(
+        color: isSelected == true ? Colors.black : Colors.white,
         borderRadius: BorderRadius.circular(4),
         border: Border.all(
           color: Color(0XFF000000),
