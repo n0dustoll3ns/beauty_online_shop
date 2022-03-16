@@ -14,7 +14,7 @@ class BottomDetailPageBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomAppBar(
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Container(
             margin: EdgeInsets.all(kDefaultPaddin / 2),
@@ -25,9 +25,9 @@ class BottomDetailPageBar extends StatelessWidget {
               border: Border.all(color: product.color),
             ),
             child: IconButton(
-              color: Colors.black,
+              color: product.color,
               onPressed: null,
-              icon: SvgPicture.asset('assets/icons/add_to_cart.svg'),
+              icon: Icon(Icons.shopping_bag),
             ),
           ),
         ],
