@@ -1,3 +1,4 @@
+import 'package:beauty_online_shop/constants.dart';
 import 'package:flutter/material.dart';
 import '../../../products/perfumery.dart';
 
@@ -15,9 +16,11 @@ class BottomDetailPageBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            height: 50,
+            margin: EdgeInsets.all(kDefaultPaddin / 2),
+            height: 40,
             width: 58,
             decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(18),
               border: Border.all(color: product.color),
             ),
             child: IconButton(
