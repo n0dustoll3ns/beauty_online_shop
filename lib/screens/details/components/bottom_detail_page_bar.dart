@@ -1,5 +1,6 @@
 import 'package:beauty_online_shop/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../../../products/perfumery.dart';
 
 class BottomDetailPageBar extends StatelessWidget {
@@ -24,8 +25,9 @@ class BottomDetailPageBar extends StatelessWidget {
               border: Border.all(color: product.color),
             ),
             child: IconButton(
+              color: Colors.black,
               onPressed: null,
-              icon: Icon(Icons.add_shopping_cart_rounded),
+              icon: SvgPicture.asset('assets/icons/add_to_cart.svg'),
             ),
           ),
         ],
