@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../constants.dart';
 import 'package:beauty_online_shop/products/perfumery.dart';
 
+import 'components/bottom_detail_page_bar.dart';
+
 class DetailPage extends StatelessWidget {
   final Perfumery product;
 
@@ -23,6 +25,7 @@ class DetailPage extends StatelessWidget {
         ],
       ),
       body: Body(product: product),
+      bottomNavigationBar: BottomDetailPageBar(),
     );
   }
 }
