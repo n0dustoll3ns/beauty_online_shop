@@ -92,7 +92,7 @@ List<Perfumery> perfumery_products = [
       price: 27500,
       volume: 75,
       count: 12,
-      color: Color(0XFFcccccc),
+      color: Color(0XFFcccc99),
       country: Country.fromID(1),
       brand: Brand.fromID(3)),
   Perfumery(
