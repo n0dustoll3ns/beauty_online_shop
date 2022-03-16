@@ -36,23 +36,20 @@ class Body extends StatelessWidget {
                     children: <Widget>[
                       Row(
                         children: [
-                          Column(
-                            children: [
-                              const Text('Value'),
+                          Row(
+                            children: const [
+                              Text('Value'),
                               ValueDot(
-                                product: product,
                                 isSelected: false,
-                                value: 50,
+                                volume: 50,
                               ),
                               ValueDot(
-                                product: product,
                                 isSelected: true,
-                                value: 75,
+                                volume: 75,
                               ),
                               ValueDot(
-                                product: product,
                                 isSelected: false,
-                                value: 100,
+                                volume: 75,
                               ),
                             ],
                           ),
@@ -72,16 +69,14 @@ class Body extends StatelessWidget {
 }
 
 class ValueDot extends StatelessWidget {
-  final int value;
+  final int volume;
   final bool isSelected;
   const ValueDot({
     Key? key,
-    required this.product,
-    required this.value,
+    required this.volume,
     required this.isSelected,
   }) : super(key: key);
 
-  final Perfumery product;
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +87,7 @@ class ValueDot extends StatelessWidget {
       ),
       padding: const EdgeInsets.all(2.5),
       child: Text(
-        product.volume.toString(),
+        volume.toString(),
         textScaleFactor: 0.8,
         textAlign: TextAlign.center,
         style:
