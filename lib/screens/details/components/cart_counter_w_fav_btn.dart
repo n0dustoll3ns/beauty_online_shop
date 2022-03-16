@@ -1,7 +1,7 @@
-
-
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:beauty_online_shop/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class CartCounter extends StatefulWidget {
   const CartCounter({Key? key}) : super(key: key);
@@ -53,7 +53,6 @@ class _CartCounterState extends State<CartCounter> {
       {required IconData icon, required Function() press}) {
     return Container(
       padding: EdgeInsets.symmetric(vertical: kDefaultPaddin / 2),
-      width: 52,
       child: OutlinedButton(
         onPressed: press,
         child: Icon(
@@ -65,6 +64,29 @@ class _CartCounterState extends State<CartCounter> {
                 borderRadius: BorderRadius.circular(12.0),
                 side: BorderSide(color: Colors.black54)))),
       ),
+    );
+  }
+}
+
+class CartCounter_w_FavBtn extends StatelessWidget {
+  const CartCounter_w_FavBtn({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        CartCounter(),
+        Container(
+          padding: EdgeInsets.all(8),
+          height: 32,
+          width: 32,
+          decoration: BoxDecoration(color: Colors.red, shape: BoxShape.circle),
+          child: SvgPicture.asset("assets/icons/heart.svg"),
+        )
+      ],
     );
   }
 }

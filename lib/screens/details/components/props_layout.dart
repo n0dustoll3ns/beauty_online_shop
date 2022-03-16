@@ -3,8 +3,6 @@ import '../../../constants.dart';
 import '../../../products/perfumery.dart';
 import 'body.dart';
 
-
-
 class VolumeDot extends StatelessWidget {
   final int volume;
   final bool isSelected;
@@ -34,7 +32,7 @@ class VolumeDot extends StatelessWidget {
       width: 28,
       decoration: BoxDecoration(
         color: isSelected == true ? Colors.black : Colors.white,
-        borderRadius: BorderRadius.circular(4),
+        borderRadius: BorderRadius.circular(5.6),
         border: Border.all(
           color: Color(0XFF000000),
         ),
@@ -42,7 +40,6 @@ class VolumeDot extends StatelessWidget {
     );
   }
 }
-
 
 class PropsLayout extends StatelessWidget {
   const PropsLayout({
@@ -91,8 +88,7 @@ class PropsLayout extends StatelessWidget {
                 TextSpan(text: "Brand\n"),
                 TextSpan(
                   text: '${product.brand.name}',
-                  style:
-                      Theme.of(context).textTheme.headline6!,
+                  style: Theme.of(context).textTheme.headline6!,
                 ),
               ],
             ),

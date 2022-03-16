@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import '../../../constants.dart';
 import 'package:beauty_online_shop/products/perfumery.dart';
-import 'cart_counter.dart';
+import 'cart_counter_w_fav_btn.dart';
 import 'description.dart';
 import 'product_title_with_image.dart';
 import 'props_layout.dart';
-import 'package:flutter_svg/svg.dart';
 
 class Body extends StatelessWidget {
   const Body({
@@ -42,23 +40,7 @@ class Body extends StatelessWidget {
                   child: Column(
                     children: <Widget>[
                       PropsLayout(product: product),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          CartCounter(),
-                          Container(
-                            
-                            padding: EdgeInsets.all(8),
-                            height: 32,
-                            width: 32,
-                            decoration: BoxDecoration(
-                              color: Colors.red,
-                              shape: BoxShape.circle
-                            ),
-                            child: SvgPicture.asset("assets/icons/heart.svg"),
-                          )
-                        ],
-                      ),
+                      CartCounter_w_FavBtn(),
                       Description(product: product),
                     ],
                   ),
