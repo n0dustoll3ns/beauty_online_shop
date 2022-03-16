@@ -45,14 +45,17 @@ class Body extends StatelessWidget {
                                   VolumeDot(
                                     isSelected: false,
                                     volume: 50,
+                                    product: product,
                                   ),
                                   VolumeDot(
                                     isSelected: true,
                                     volume: 75,
+                                    product: product,
                                   ),
                                   VolumeDot(
                                     isSelected: false,
                                     volume: 100,
+                                    product: product,
                                   ),
                                 ],
                               )
@@ -62,10 +65,10 @@ class Body extends StatelessWidget {
                             text: TextSpan(
                               style: TextStyle(color: kTextColor),
                               children: [
-                                TextSpan(text: "Concentration"),
+                                TextSpan(text: "Concentration\n"),
                                 TextSpan(
                                   text: '${product.brand}',
-                                  style: Theme.of(context).textTheme.headline5!,
+                                  style: Theme.of(context).textTheme.headline6!,
                                 ),
                               ],
                             ),
@@ -88,10 +91,12 @@ class Body extends StatelessWidget {
 class VolumeDot extends StatelessWidget {
   final int volume;
   final bool isSelected;
+  final Perfumery product;
   const VolumeDot({
     Key? key,
     required this.volume,
     required this.isSelected,
+    required this.product,
   }) : super(key: key);
 
   @override
