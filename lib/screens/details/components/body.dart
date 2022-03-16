@@ -4,9 +4,13 @@ import 'package:beauty_online_shop/products/perfumery.dart';
 import 'product_title_with_image.dart';
 
 class Body extends StatelessWidget {
-  final Perfumery product;
+  const Body({
+    Key? key,
+    required this.product,
+  }) : super(key: key);
 
-  const Body({Key? key, required this.product}) : super(key: key);
+  final Perfumery product;
+  
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -67,7 +71,7 @@ class Body extends StatelessWidget {
                               children: [
                                 TextSpan(text: "Concentration\n"),
                                 TextSpan(
-                                  text: '${product.brand}',
+                                  text: '${product.brand.name}',
                                   style: Theme.of(context).textTheme.headline6!,
                                 ),
                               ],

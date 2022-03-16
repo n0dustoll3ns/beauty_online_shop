@@ -3,7 +3,6 @@ import 'package:beauty_online_shop/products/perfumery.dart';
 
 import '../../../constants.dart';
 
-
 class ProductTitleWithImage extends StatelessWidget {
   const ProductTitleWithImage({
     Key? key,
