@@ -10,7 +10,7 @@ class Body extends StatelessWidget {
   }) : super(key: key);
 
   final Perfumery product;
-  
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -40,30 +40,32 @@ class Body extends StatelessWidget {
                     children: <Widget>[
                       Row(
                         children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('Volume'),
-                              Row(
-                                children: [
-                                  VolumeDot(
-                                    isSelected: false,
-                                    volume: 50,
-                                    product: product,
-                                  ),
-                                  VolumeDot(
-                                    isSelected: true,
-                                    volume: 75,
-                                    product: product,
-                                  ),
-                                  VolumeDot(
-                                    isSelected: false,
-                                    volume: 100,
-                                    product: product,
-                                  ),
-                                ],
-                              )
-                            ],
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('Volume'),
+                                Row(
+                                  children: [
+                                    VolumeDot(
+                                      isSelected: false,
+                                      volume: 50,
+                                      product: product,
+                                    ),
+                                    VolumeDot(
+                                      isSelected: true,
+                                      volume: 75,
+                                      product: product,
+                                    ),
+                                    VolumeDot(
+                                      isSelected: false,
+                                      volume: 100,
+                                      product: product,
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
                           ),
                           RichText(
                             text: TextSpan(
