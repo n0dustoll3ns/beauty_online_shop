@@ -36,22 +36,39 @@ class Body extends StatelessWidget {
                     children: <Widget>[
                       Row(
                         children: [
-                          Row(
-                            children: const [
-                              Text('Value'),
-                              ValueDot(
-                                isSelected: false,
-                                volume: 50,
-                              ),
-                              ValueDot(
-                                isSelected: true,
-                                volume: 75,
-                              ),
-                              ValueDot(
-                                isSelected: false,
-                                volume: 75,
-                              ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Volume'),
+                              Row(
+                                children: [
+                                  VolumeDot(
+                                    isSelected: false,
+                                    volume: 50,
+                                  ),
+                                  VolumeDot(
+                                    isSelected: true,
+                                    volume: 75,
+                                  ),
+                                  VolumeDot(
+                                    isSelected: false,
+                                    volume: 100,
+                                  ),
+                                ],
+                              )
                             ],
+                          ),
+                          RichText(
+                            text: TextSpan(
+                              style: TextStyle(color: kTextColor),
+                              children: [
+                                TextSpan(text: "Concentration"),
+                                TextSpan(
+                                  text: '${product.brand}',
+                                  style: Theme.of(context).textTheme.headline5!,
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
@@ -68,15 +85,14 @@ class Body extends StatelessWidget {
   }
 }
 
-class ValueDot extends StatelessWidget {
+class VolumeDot extends StatelessWidget {
   final int volume;
   final bool isSelected;
-  const ValueDot({
+  const VolumeDot({
     Key? key,
     required this.volume,
     required this.isSelected,
   }) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
