@@ -19,15 +19,39 @@ class BottomDetailPageBar extends StatelessWidget {
           Container(
             margin: EdgeInsets.all(kDefaultPaddin / 2),
             height: 40,
-            width: 58,
+            width: 78,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(18),
               border: Border.all(color: product.color),
             ),
             child: IconButton(
-              color: Colors.black,
               onPressed: null,
-              icon: Icon(Icons.add_shopping_cart_rounded),
+              icon: Icon(
+                Icons.add_shopping_cart_rounded,
+                color: product.color,
+              ),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              margin: EdgeInsets.all(kDefaultPaddin / 2),
+              height: 40,
+              decoration: BoxDecoration(
+                color: product.color,
+                borderRadius: BorderRadius.circular(18),
+                border: Border.all(color: product.color),
+              ),
+              child: IconButton(
+                onPressed: null,
+                icon: Text(
+                  'BUY NOW',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
             ),
           ),
         ],
