@@ -25,9 +25,7 @@ class DetailPage extends StatelessWidget {
         ],
       ),
       body: Body(product: product),
-      bottomNavigationBar: BottomDetailPageBar(
-        product: product,
-      ),
+      bottomNavigationBar: BottomDetailPageBar(product: product),
     );
   }
 }
