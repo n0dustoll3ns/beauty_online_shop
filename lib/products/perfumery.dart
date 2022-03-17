@@ -22,7 +22,7 @@ class Perfumery {
   });
 }
 
-List<Perfumery> perfumery_products = [
+List<Perfumery> products = [
   Perfumery(
       id: 0,
       title: 'Creed Aventus for Him 100 ml',
@@ -108,7 +108,7 @@ List<Perfumery> perfumery_products = [
       country: Country.fromID(1),
       brand: Brand.fromID(3)),
   Perfumery(
-      id: 6,
+      id: 7,
       title: 'Amouage Imitation Man 100 ml',
       image: 'assets/images/7.png',
       description:
