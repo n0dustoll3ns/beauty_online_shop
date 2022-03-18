@@ -5,13 +5,11 @@ import 'package:beauty_online_shop/props/brands.dart';
 class Perfumery {
   final String image, title, description;
   final int id, price, volume, count;
-  final int? associating_id;
   final Color color;
   final Country country;
   final Brand brand;
   Perfumery({
     required this.id,
-    this.associating_id,
     required this.title,
     required this.image,
     required this.description,
@@ -37,7 +35,6 @@ List<Perfumery> perfumery = [
     color: Color(0XFFcccccc),
     country: Country.fromID(1),
     brand: Brand.fromID(0),
-    associating_id: 0,
   ),
   Perfumery(
       id: 1,
@@ -51,8 +48,7 @@ List<Perfumery> perfumery = [
       color: Color(0XFFcccccc),
       country: Country.fromID(1),
       brand: Brand.fromID(0),
-      associating_id: 0),
-  Perfumery(
+),  Perfumery(
     id: 2,
     title: 'Creed Viking 100 ml',
     image: 'assets/images/2.png',
@@ -64,7 +60,6 @@ List<Perfumery> perfumery = [
     color: Color.fromARGB(255, 233, 171, 189),
     country: Country.fromID(1),
     brand: Brand.fromID(0),
-    associating_id: 1,
   ),
   Perfumery(
     id: 3,
@@ -78,7 +73,6 @@ List<Perfumery> perfumery = [
     color: Color.fromARGB(255, 233, 171, 189),
     country: Country.fromID(1),
     brand: Brand.fromID(0),
-    associating_id: 1,
   ),
   Perfumery(
     id: 4,
