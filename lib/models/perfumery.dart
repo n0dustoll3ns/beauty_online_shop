@@ -11,7 +11,7 @@ class Perfumery {
   final Brand brand;
   Perfumery({
     required this.id,
-    required this.associating_id,
+    this.associating_id,
     required this.title,
     required this.image,
     required this.description,
@@ -37,7 +37,7 @@ List<Perfumery> perfumery = [
     color: Color(0XFFcccccc),
     country: Country.fromID(1),
     brand: Brand.fromID(0),
-    associating_id: null,
+    associating_id: 0,
   ),
   Perfumery(
       id: 1,
@@ -51,7 +51,7 @@ List<Perfumery> perfumery = [
       color: Color(0XFFcccccc),
       country: Country.fromID(1),
       brand: Brand.fromID(0),
-      associating_id: null),
+      associating_id: 0),
   Perfumery(
     id: 2,
     title: 'Creed Viking 100 ml',
@@ -64,7 +64,7 @@ List<Perfumery> perfumery = [
     color: Color.fromARGB(255, 233, 171, 189),
     country: Country.fromID(1),
     brand: Brand.fromID(0),
-    associating_id: null,
+    associating_id: 1,
   ),
   Perfumery(
     id: 3,
@@ -78,7 +78,7 @@ List<Perfumery> perfumery = [
     color: Color.fromARGB(255, 233, 171, 189),
     country: Country.fromID(1),
     brand: Brand.fromID(0),
-    associating_id: null,
+    associating_id: 1,
   ),
   Perfumery(
     id: 4,
@@ -92,7 +92,6 @@ List<Perfumery> perfumery = [
     color: Color.fromARGB(255, 221, 206, 157),
     country: Country.fromID(1),
     brand: Brand.fromID(0),
-    associating_id: null,
   ),
   Perfumery(
     id: 5,
@@ -106,7 +105,6 @@ List<Perfumery> perfumery = [
     color: Color(0XFFcccc99),
     country: Country.fromID(1),
     brand: Brand.fromID(3),
-    associating_id: null,
   ),
   Perfumery(
     id: 6,
@@ -120,7 +118,6 @@ List<Perfumery> perfumery = [
     color: Color(0XFFcccc99),
     country: Country.fromID(1),
     brand: Brand.fromID(3),
-    associating_id: null,
   ),
   Perfumery(
     id: 7,
@@ -134,7 +131,6 @@ List<Perfumery> perfumery = [
     color: Color(0XFFccccff),
     country: Country.fromID(2),
     brand: Brand.fromID(1),
-    associating_id: null,
   ),
 ];
 
