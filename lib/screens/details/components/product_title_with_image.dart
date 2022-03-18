@@ -30,7 +30,6 @@ class ProductTitleWithImage extends StatelessWidget {
                 .headline4!
                 .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
           ),
-          const SizedBox(height: kDefaultPaddin),
           Row(
             children: [
               RichText(
