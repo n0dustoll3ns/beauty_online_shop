@@ -1,7 +1,7 @@
 import 'package:beauty_online_shop/screens/details/components/body.dart';
 import 'package:flutter/material.dart';
 import '../../../constants.dart';
-import 'package:beauty_online_shop/products/perfumery.dart';
+import '../../../models/perfumery.dart';
 
 import 'components/bottom_detail_page_bar.dart';
 

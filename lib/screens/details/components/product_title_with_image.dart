@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:beauty_online_shop/products/perfumery.dart';
+import '../../../models/perfumery.dart';
 
 import '../../../constants.dart';
 

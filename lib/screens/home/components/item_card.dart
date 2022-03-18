@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../constants.dart';
-import 'package:beauty_online_shop/products/perfumery.dart';
+import 'package:beauty_online_shop/models/perfumery.dart';
 
 class ProductCard extends StatelessWidget {
   final Perfumery product;

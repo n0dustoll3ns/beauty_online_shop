@@ -22,7 +22,7 @@ class Perfumery {
   });
 }
 
-List<Perfumery> products = [
+List<Perfumery> perfumery = [
   Perfumery(
       id: 0,
       title: 'Creed Aventus for Him 100 ml',
@@ -120,3 +120,7 @@ List<Perfumery> products = [
       country: Country.fromID(2),
       brand: Brand.fromID(1)),
 ];
+
+List<Perfumery> associated_perfum1 = [perfumery[0], perfumery[1]];
+
+List<Perfumery> associated_perfum2 = [perfumery[2], perfumery[3]];

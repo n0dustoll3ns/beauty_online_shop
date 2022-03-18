@@ -1,7 +1,7 @@
 import 'package:beauty_online_shop/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../../../products/perfumery.dart';
+import '../../../models/perfumery.dart';
 
 class BottomDetailPageBar extends StatelessWidget {
   final Perfumery product;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../constants.dart';
-import '../../../products/perfumery.dart';
+import '../../../models/perfumery.dart';
 import 'body.dart';
 
 class VolumeDot extends StatelessWidget {

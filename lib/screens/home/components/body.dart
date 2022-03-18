@@ -1,7 +1,7 @@
 import 'package:beauty_online_shop/screens/details/detailScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:beauty_online_shop/constants.dart';
-import 'package:beauty_online_shop/products/perfumery.dart';
+import 'package:beauty_online_shop/models/perfumery.dart';
 import 'categories.dart';
 import 'item_card.dart';
 
@@ -28,7 +28,7 @@ class Body extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
             child: GridView.builder(
-              itemCount: products.length,
+              itemCount: perfumery.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 childAspectRatio: 0.72,
@@ -36,13 +36,13 @@ class Body extends StatelessWidget {
                 mainAxisSpacing: kDefaultPaddin,
               ),
               itemBuilder: (context, index) => ProductCard(
-                product: products[index],
+                product: perfumery[index],
                 press: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => DetailPage(
-                        product: products[index],
+                        product: perfumery[index],
                       ),
                     ),
                   );
