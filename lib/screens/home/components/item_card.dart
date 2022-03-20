@@ -3,7 +3,7 @@ import '../../../constants.dart';
 import 'package:beauty_online_shop/models/perfumery.dart';
 
 class ProductCard extends StatelessWidget {
-  final Perfumery product;
+  final Fragrance product;
   final Function press;
   const ProductCard({
     Key? key,

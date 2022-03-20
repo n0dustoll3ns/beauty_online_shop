@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../models/perfumery.dart';
 
 class BottomDetailPageBar extends StatelessWidget {
-  final Perfumery product;
+  final Fragrance product;
   const BottomDetailPageBar({
     Key? key,
     required this.product,
