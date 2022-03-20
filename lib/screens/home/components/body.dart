@@ -6,6 +6,8 @@ import 'categories.dart';
 import 'item_card.dart';
 
 class Body extends StatelessWidget {
+  List<Perfumery> perfumery = fragrance.forEach((element) { });
+
   const Body({Key? key}) : super(key: key);
 
   @override

@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import '../props/brands.dart';
 import '../props/countries.dart';
 
-class Perfumery {
-  final String title, description;
+class Fragrance {
+  String title, description;
   final Color color;
   final Country country;
   final Brand brand;
-  List<PerfumeryProperties> properties;
-  Perfumery({
+  final List<PerfumeryProperties> properties;
+  Fragrance({
     required this.properties,
     required this.title,
     required this.description,
@@ -16,6 +16,25 @@ class Perfumery {
     required this.country,
     required this.brand,
   });
+  specification() {
+    List<Perfumery> listOfItems = [];
+    for (int i = 0; i < properties.length; i++) {
+      listOfItems.add(
+        Perfumery(
+            title: title,
+            description: description,
+            color: color,
+            country: country,
+            brand: brand,
+            volume: properties[i].volume,
+            image: properties[i].image,
+            price: properties[i].price,
+            id: properties[i].id,
+            count: properties[i].count),
+      );
+    }
+    return listOfItems;
+  }
 }
 
 class PerfumeryProperties {
@@ -30,8 +49,28 @@ class PerfumeryProperties {
   });
 }
 
-List<Perfumery> perfumery = [
+class Perfumery {
+  String title, image, description;
+  int volume, count, price, id;
+  Color color;
+  Brand brand;
+  Country country;
   Perfumery(
+      {required this.title,
+      required this.description,
+      required this.color,
+      required this.country,
+      required this.brand,
+      required this.volume,
+      required this.image,
+      required this.price,
+      required this.id,
+      required this.count});
+  listOfItems() {}
+}
+
+List<Fragrance> fragrance = [
+  Fragrance(
     properties: [
       PerfumeryProperties(
         count: 12,
@@ -169,7 +208,6 @@ List<Perfumery> perfumery = [
     brand: Brand.fromID(0),
   ),
 ];
-
 
 // List<Perfumery> perfumery = [
 //   Perfumery(

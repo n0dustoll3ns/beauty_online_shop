@@ -12,7 +12,7 @@ class Body extends StatelessWidget {
     required this.product,
   }) : super(key: key);
 
-  final Perfumery product;
+  final Fragrance product;
 
   @override
   Widget build(BuildContext context) {
