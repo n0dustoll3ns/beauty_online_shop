@@ -6,7 +6,7 @@ import 'body.dart';
 class VolumeDot extends StatelessWidget {
   final int volume;
   final bool isSelected;
-  final Fragrance product;
+  final Perfumery product;
   const VolumeDot({
     Key? key,
     required this.volume,
@@ -47,7 +47,7 @@ class PropsLayout extends StatelessWidget {
     required this.product,
   }) : super(key: key);
 
-  final Fragrance product;
+  final Perfumery product;
 
   @override
   Widget build(BuildContext context) {

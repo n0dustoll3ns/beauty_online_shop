@@ -7,7 +7,7 @@ class Description extends StatelessWidget {
     required this.product,
   }) : super(key: key);
 
-  final Fragrance product;
+  final Perfumery product;
 
   @override
   Widget build(BuildContext context) {

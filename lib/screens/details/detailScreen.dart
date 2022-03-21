@@ -6,7 +6,7 @@ import '../../../models/perfumery.dart';
 import 'components/bottom_detail_page_bar.dart';
 
 class DetailPage extends StatelessWidget {
-  final Fragrance product;
+  final Perfumery product;
 
   const DetailPage({Key? key, required this.product}) : super(key: key);
   @override

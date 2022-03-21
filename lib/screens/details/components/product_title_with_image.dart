@@ -37,7 +37,7 @@ class ProductTitleWithImage extends StatelessWidget {
                   children: [
                     TextSpan(text: 'Price\n'),
                     TextSpan(
-                      text: '₽${product.price}',
+                      text: '₽${product.properties[0].price}',
                       style: Theme.of(context).textTheme.headline4!.copyWith(
                           color: Colors.white, fontWeight: FontWeight.bold),
                     ),
@@ -47,9 +47,9 @@ class ProductTitleWithImage extends StatelessWidget {
               const SizedBox(width: kDefaultPaddin),
               Expanded(
                 child: Hero(
-                  tag: "${product.id}",
+                  tag: "${product.properties[0].id}",
                   child: Image.asset(
-                    product.image,
+                    product.properties[0].image,
                     fit: BoxFit.fill,
                   ),
                 ),

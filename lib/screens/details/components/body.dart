@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../constants.dart';
-import 'package:beauty_online_shop/models/perfumery.dart';
+import '../../../models/perfumery.dart';
 import 'cart_counter_w_fav_btn.dart';
 import 'description.dart';
 import 'product_title_with_image.dart';
@@ -11,8 +11,7 @@ class Body extends StatelessWidget {
     Key? key,
     required this.product,
   }) : super(key: key);
-
-  final Fragrance product;
+  final Perfumery product;
 
   @override
   Widget build(BuildContext context) {

@@ -3,7 +3,7 @@ import '../../../constants.dart';
 import 'package:beauty_online_shop/models/perfumery.dart';
 
 class ProductCard extends StatelessWidget {
-  final Fragrance product;
+  final Perfumery product;
   final Function press;
   const ProductCard({
     Key? key,
@@ -27,8 +27,8 @@ class ProductCard extends StatelessWidget {
                   color: product.color,
                   borderRadius: BorderRadius.circular(16)),
               child: Hero(
-                tag: "${product.id}",
-                child: Image.asset(product.image),
+                tag: "${product.properties[0].id}",
+                child: Image.asset(product.properties[0].image),
               ),
             ),
           ),
@@ -42,7 +42,7 @@ class ProductCard extends StatelessWidget {
               ),
             ),
           ),
-          Text('₽ ' + product.price.toString())
+          Text('₽ ' + product.properties[0].price.toString())
         ],
       ),
     );

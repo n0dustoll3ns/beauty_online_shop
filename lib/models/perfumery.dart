@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import '../props/brands.dart';
 import '../props/countries.dart';
 
-class Fragrance {
-  String title, description;
+class Perfumery {
+  final String title, description;
   final Color color;
   final Country country;
   final Brand brand;
-  final List<PerfumeryProperties> properties;
-  Fragrance({
+  List<PerfumeryProperties> properties;
+  Perfumery({
     required this.properties,
     required this.title,
     required this.description,
@@ -16,25 +16,6 @@ class Fragrance {
     required this.country,
     required this.brand,
   });
-  specification() {
-    List<Perfumery> listOfItems = [];
-    for (int i = 0; i < properties.length; i++) {
-      listOfItems.add(
-        Perfumery(
-            title: title,
-            description: description,
-            color: color,
-            country: country,
-            brand: brand,
-            volume: properties[i].volume,
-            image: properties[i].image,
-            price: properties[i].price,
-            id: properties[i].id,
-            count: properties[i].count),
-      );
-    }
-    return listOfItems;
-  }
 }
 
 class PerfumeryProperties {
@@ -42,47 +23,24 @@ class PerfumeryProperties {
   final int volume, count, price, id;
   PerfumeryProperties({
     required this.volume,
-    required this.image,
     required this.price,
     required this.id,
     required this.count,
-  });
+  }) : image = 'assets/images/$id.png' {}
 }
 
-class Perfumery {
-  String title, image, description;
-  int volume, count, price, id;
-  Color color;
-  Brand brand;
-  Country country;
+List<Perfumery> perfumery = [
   Perfumery(
-      {required this.title,
-      required this.description,
-      required this.color,
-      required this.country,
-      required this.brand,
-      required this.volume,
-      required this.image,
-      required this.price,
-      required this.id,
-      required this.count});
-  listOfItems() {}
-}
-
-List<Fragrance> fragrance = [
-  Fragrance(
     properties: [
       PerfumeryProperties(
         count: 12,
         id: 0,
-        image: '',
         price: 24600,
         volume: 100,
       ),
       PerfumeryProperties(
         count: 8,
         id: 1,
-        image: '',
         price: 18600,
         volume: 50,
       ),
@@ -99,14 +57,12 @@ List<Fragrance> fragrance = [
       PerfumeryProperties(
         count: 15,
         id: 2,
-        image: '',
         price: 24620,
         volume: 100,
       ),
       PerfumeryProperties(
         count: 4,
         id: 3,
-        image: '',
         price: 18680,
         volume: 50,
       ),
@@ -122,20 +78,12 @@ List<Fragrance> fragrance = [
     properties: [
       PerfumeryProperties(
         count: 12,
-        id: 0,
-        image: '',
+        id: 4,
         price: 24600,
         volume: 100,
       ),
-      PerfumeryProperties(
-        count: 8,
-        id: 1,
-        image: '',
-        price: 18600,
-        volume: 50,
-      ),
     ],
-    title: 'Creed Aventus for Him',
+    title: 'Creed Acqua Originale Citrus Bigarade',
     description:
         'Aventus («Крид Авентус») – это аромат для стильных и модных мужчин. Аромат был создан сравнительно недавно, в 2010 году. Парфюмерами его являются: Olivier Creed, Erwin Creed.\n Парфюм принадлежит к группе ароматов шипровые фруктовые. Парфюм Aventus Creed создан под вдохновением от истории жизни Наполеона. В композиции аромата необычно звучат элегантные цветочные компоненты, ненавязчивые фруктовые оттенки и богатая древесная составляющая. Аромат смелый, необыкновенный, оптимистичный, мужественный. Это привлекательный для противоположного пола и вдохновляющий парфюм.\n\nКомпозиция Creed Aventus звучит нотами индийского ананаса, красного яблока, черной смородины и бергамота. Средние ноты представлены розой, листьями пачули, березой и жасмином. Базовые ноты наполнены ванилью, амброй, дубовым мхом и мускусом.',
     color: Color(0XFFcccccc),
@@ -146,68 +94,52 @@ List<Fragrance> fragrance = [
     properties: [
       PerfumeryProperties(
         count: 12,
-        id: 0,
-        image: '',
+        id: 5,
         price: 24600,
         volume: 100,
       ),
     ],
-    title: 'Creed Aventus for Him',
+    title: 'Memo French Leather',
     description:
         'Aventus («Крид Авентус») – это аромат для стильных и модных мужчин. Аромат был создан сравнительно недавно, в 2010 году. Парфюмерами его являются: Olivier Creed, Erwin Creed.\n Парфюм принадлежит к группе ароматов шипровые фруктовые. Парфюм Aventus Creed создан под вдохновением от истории жизни Наполеона. В композиции аромата необычно звучат элегантные цветочные компоненты, ненавязчивые фруктовые оттенки и богатая древесная составляющая. Аромат смелый, необыкновенный, оптимистичный, мужественный. Это привлекательный для противоположного пола и вдохновляющий парфюм.\n\nКомпозиция Creed Aventus звучит нотами индийского ананаса, красного яблока, черной смородины и бергамота. Средние ноты представлены розой, листьями пачули, березой и жасмином. Базовые ноты наполнены ванилью, амброй, дубовым мхом и мускусом.',
     color: Color(0XFFcccccc),
     country: Country.fromID(1),
-    brand: Brand.fromID(0),
+    brand: Brand.fromID(3),
   ),
   Perfumery(
     properties: [
       PerfumeryProperties(
         count: 12,
-        id: 0,
-        image: '',
+        id: 6,
         price: 24600,
         volume: 100,
       ),
-      PerfumeryProperties(
-        count: 8,
-        id: 1,
-        image: '',
-        price: 18600,
-        volume: 50,
-      ),
     ],
-    title: 'Creed Aventus for Him',
+    title: 'Memo Sicilian Leather',
     description:
         'Aventus («Крид Авентус») – это аромат для стильных и модных мужчин. Аромат был создан сравнительно недавно, в 2010 году. Парфюмерами его являются: Olivier Creed, Erwin Creed.\n Парфюм принадлежит к группе ароматов шипровые фруктовые. Парфюм Aventus Creed создан под вдохновением от истории жизни Наполеона. В композиции аромата необычно звучат элегантные цветочные компоненты, ненавязчивые фруктовые оттенки и богатая древесная составляющая. Аромат смелый, необыкновенный, оптимистичный, мужественный. Это привлекательный для противоположного пола и вдохновляющий парфюм.\n\nКомпозиция Creed Aventus звучит нотами индийского ананаса, красного яблока, черной смородины и бергамота. Средние ноты представлены розой, листьями пачули, березой и жасмином. Базовые ноты наполнены ванилью, амброй, дубовым мхом и мускусом.',
     color: Color(0XFFcccccc),
     country: Country.fromID(1),
-    brand: Brand.fromID(0),
+    brand: Brand.fromID(3),
   ),
   Perfumery(
     properties: [
       PerfumeryProperties(
         count: 12,
-        id: 0,
-        image: '',
+        id: 7,
         price: 24600,
         volume: 100,
       ),
-      PerfumeryProperties(
-        count: 8,
-        id: 1,
-        image: '',
-        price: 18600,
-        volume: 50,
-      ),
     ],
-    title: 'Creed Aventus for Him',
+    title: 'Amouage Imitation Man',
     description:
         'Aventus («Крид Авентус») – это аромат для стильных и модных мужчин. Аромат был создан сравнительно недавно, в 2010 году. Парфюмерами его являются: Olivier Creed, Erwin Creed.\n Парфюм принадлежит к группе ароматов шипровые фруктовые. Парфюм Aventus Creed создан под вдохновением от истории жизни Наполеона. В композиции аромата необычно звучат элегантные цветочные компоненты, ненавязчивые фруктовые оттенки и богатая древесная составляющая. Аромат смелый, необыкновенный, оптимистичный, мужественный. Это привлекательный для противоположного пола и вдохновляющий парфюм.\n\nКомпозиция Creed Aventus звучит нотами индийского ананаса, красного яблока, черной смородины и бергамота. Средние ноты представлены розой, листьями пачули, березой и жасмином. Базовые ноты наполнены ванилью, амброй, дубовым мхом и мускусом.',
     color: Color(0XFFcccccc),
-    country: Country.fromID(1),
-    brand: Brand.fromID(0),
+    country: Country.fromID(2),
+    brand: Brand.fromID(1),
   ),
 ];
+
 
 // List<Perfumery> perfumery = [
 //   Perfumery(
@@ -311,8 +243,8 @@ List<Fragrance> fragrance = [
 //     volume: 100,
 //     count: 3,
 //     color: Color(0XFFccccff),
-//     country: Country.fromID(2),
-//     brand: Brand.fromID(1),
+    // country: Country.fromID(2),
+    // brand: Brand.fromID(1),
 //   ),
 // ];
 
