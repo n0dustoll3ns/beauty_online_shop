@@ -18,41 +18,40 @@ class _CategoriesState extends State<Categories> {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: categories.length,
-        itemBuilder: (BuildContext context, int index) => buildCategory(index),
-      ),
-    );
-  }
-
-  Widget buildCategory(int index) {
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          _selectedCategory = index;
-        });
-      },
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              categories[index],
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: _selectedCategory == index
-                      ? kTextColor
-                      : kTextLightColor),
+        itemBuilder: (BuildContext context, int index) {
+          return GestureDetector(
+            onTap: () {
+              setState(() {
+                _selectedCategory = index;
+              });
+            },
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    categories[index],
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: _selectedCategory == index
+                            ? kTextColor
+                            : kTextLightColor),
+                  ),
+                  Container(
+                    margin:
+                        EdgeInsets.only(top: kDefaultPaddin / 4), //top padding
+                    height: 2,
+                    width: 30,
+                    color: _selectedCategory == index
+                        ? Colors.black
+                        : Colors.transparent,
+                  ),
+                ],
+              ),
             ),
-            Container(
-              margin: EdgeInsets.only(top: kDefaultPaddin / 4), //top padding
-              height: 2,
-              width: 30,
-              color: _selectedCategory == index
-                  ? Colors.black
-                  : Colors.transparent,
-            ),
-          ],
-        ),
+          );
+        },
       ),
     );
   }

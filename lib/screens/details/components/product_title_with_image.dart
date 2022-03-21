@@ -6,10 +6,11 @@ import '../../../constants.dart';
 class ProductTitleWithImage extends StatelessWidget {
   const ProductTitleWithImage({
     Key? key,
-    required this.product,
+    required this.properties,
+    required this.title,
   }) : super(key: key);
-
-  final Perfumery product;
+  final String title;
+  final PerfumeryProperties properties;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class ProductTitleWithImage extends StatelessWidget {
             style: TextStyle(color: Colors.white),
           ),
           Text(
-            product.title,
+            title,
             maxLines: 1,
             style: Theme.of(context)
                 .textTheme
@@ -37,7 +38,7 @@ class ProductTitleWithImage extends StatelessWidget {
                   children: [
                     TextSpan(text: 'Price\n'),
                     TextSpan(
-                      text: '₽${product.properties[0].price}',
+                      text: '₽${properties.price}',
                       style: Theme.of(context).textTheme.headline4!.copyWith(
                           color: Colors.white, fontWeight: FontWeight.bold),
                     ),
@@ -47,11 +48,11 @@ class ProductTitleWithImage extends StatelessWidget {
               const SizedBox(width: kDefaultPaddin),
               Expanded(
                 child: Hero(
-                  tag: "${product.properties[0].id}",
+                  tag: "${properties.id}",
                   child: AspectRatio(
                     aspectRatio: 1 / 1,
                     child: Image.asset(
-                      product.properties[0].image,
+                      properties.image,
                       fit: BoxFit.fill,
                     ),
                   ),

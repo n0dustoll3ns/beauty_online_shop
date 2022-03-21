@@ -5,16 +5,24 @@ import '../../../models/perfumery.dart';
 
 import 'components/bottom_detail_page_bar.dart';
 
-class DetailPage extends StatelessWidget {
+class DetailPage extends StatefulWidget {
   final Perfumery product;
+  DetailPage({Key? key, required this.product}) : super(key: key);
 
-  const DetailPage({Key? key, required this.product}) : super(key: key);
+  @override
+  State<DetailPage> createState() => _DetailPageState();
+}
+
+class _DetailPageState extends State<DetailPage> {
+  int _selectedVolume = 0;
+  
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
-      backgroundColor: product.color,
+      backgroundColor: widget.product.color,
       appBar: AppBar(
-        backgroundColor: product.color,
+        backgroundColor: widget.product.color,
         elevation: 0,
         actions: <Widget>[
           IconButton(onPressed: () {}, icon: Icon(Icons.search)),
@@ -24,8 +32,8 @@ class DetailPage extends StatelessWidget {
           ),
         ],
       ),
-      body: Body(product: product),
-      bottomNavigationBar: BottomDetailPageBar(product: product),
+      body: Body(product: widget.product),
+      bottomNavigationBar: BottomDetailPageBar(product: widget.product),
     );
   }
 }
