@@ -48,9 +48,12 @@ class ProductTitleWithImage extends StatelessWidget {
               Expanded(
                 child: Hero(
                   tag: "${product.properties[0].id}",
-                  child: Image.asset(
-                    product.properties[0].image,
-                    fit: BoxFit.fill,
+                  child: AspectRatio(
+                    aspectRatio: 1 / 1,
+                    child: Image.asset(
+                      product.properties[0].image,
+                      fit: BoxFit.fill,
+                    ),
                   ),
                 ),
               ),

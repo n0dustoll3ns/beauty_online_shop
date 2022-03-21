@@ -6,12 +6,10 @@ import 'body.dart';
 class VolumeDot extends StatelessWidget {
   final int volume;
   final bool isSelected;
-  final Perfumery product;
   const VolumeDot({
     Key? key,
     required this.volume,
     required this.isSelected,
-    required this.product,
   }) : super(key: key);
 
   @override
@@ -58,24 +56,18 @@ class PropsLayout extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text('Volume'),
-              Row(
-                children: [
-                  VolumeDot(
-                    isSelected: false,
-                    volume: 50,
-                    product: product,
-                  ),
-                  VolumeDot(
-                    isSelected: true,
-                    volume: 75,
-                    product: product,
-                  ),
-                  VolumeDot(
-                    isSelected: false,
-                    volume: 100,
-                    product: product,
-                  ),
-                ],
+              Container(
+                height: 25,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: product.properties.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return VolumeDot(
+                        isSelected: false,
+                        volume: product.properties[index].volume);
+                  },
+                  
+                ),
               )
             ],
           ),
