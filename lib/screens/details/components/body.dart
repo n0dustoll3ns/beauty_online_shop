@@ -73,7 +73,7 @@ class _BodyState extends State<Body> {
                                           child: Text(
                                             widget.product.properties[index]
                                                 .volume
-                                                .toString(),
+                                                ,
                                             textScaleFactor: 0.8,
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
