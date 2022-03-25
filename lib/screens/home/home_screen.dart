@@ -26,9 +26,32 @@ AppBar buildAppBar() {
     actionsIconTheme: IconThemeData(
       color: kTextColor,
     ),
-    actions: <Widget>[
-      IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-      IconButton(onPressed: () {}, icon: Icon(Icons.shopping_bag_outlined)),
+    actions: [
+      IconButton(
+        onPressed: () {},
+        icon: Icon(Icons.search),
+      ),
+      Stack(
+        alignment: Alignment.center,
+        children: [
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.shopping_bag_outlined),
+          ),
+          Positioned(
+            right: 12,
+            bottom: 15,
+            child: Container(
+              height: 9,
+              width: 9,
+              decoration: BoxDecoration(
+                color: Colors.redAccent,
+                shape: BoxShape.circle,
+              ),
+            ),
+          ),
+        ],
+      ),
       SizedBox(
         width: kDefaultPaddin / 2,
       ),
