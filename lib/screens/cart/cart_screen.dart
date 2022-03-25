@@ -5,7 +5,6 @@ import 'package:beauty_online_shop/models/cart_model.dart';
 
 
 class CartModel extends ChangeNotifier {
-  final List<Perfumery> _items = items_in_cart;
 }
 
 class CartScreen extends StatefulWidget {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:beauty_online_shop/constants.dart';
 import 'components/body.dart';
+import 'components/cart_icon.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -31,27 +32,7 @@ AppBar buildAppBar() {
         onPressed: () {},
         icon: Icon(Icons.search),
       ),
-      Stack(
-        alignment: Alignment.center,
-        children: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.shopping_bag_outlined),
-          ),
-          Positioned(
-            right: 12,
-            bottom: 15,
-            child: Container(
-              height: 9,
-              width: 9,
-              decoration: BoxDecoration(
-                color: Colors.redAccent,
-                shape: BoxShape.circle,
-              ),
-            ),
-          ),
-        ],
-      ),
+      CartIcon(),
       SizedBox(
         width: kDefaultPaddin / 2,
       ),

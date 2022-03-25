@@ -1,9 +1,11 @@
 import 'package:beauty_online_shop/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'constants.dart';
+import 'models/cart_model.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(create: (context) => CartModel(),child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {

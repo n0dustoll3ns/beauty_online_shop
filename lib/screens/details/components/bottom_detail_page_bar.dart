@@ -5,9 +5,11 @@ import '../../../models/perfumery.dart';
 
 class BottomDetailPageBar extends StatelessWidget {
   final Perfumery product;
-  const BottomDetailPageBar({
+  PerfumeryProperties selectedVolume;
+  BottomDetailPageBar({
     Key? key,
     required this.product,
+    required this.selectedVolume,
   }) : super(key: key);
 
   @override
@@ -25,7 +27,7 @@ class BottomDetailPageBar extends StatelessWidget {
               border: Border.all(color: product.color),
             ),
             child: IconButton(
-              onPressed: null,
+              onPressed:  () {},
               icon: Icon(
                 Icons.add_shopping_cart_rounded,
                 color: product.color,
@@ -42,7 +44,7 @@ class BottomDetailPageBar extends StatelessWidget {
                 border: Border.all(color: product.color),
               ),
               child: IconButton(
-                onPressed: null,
+                onPressed: () {},
                 icon: Text(
                   'BUY NOW',
                   style: TextStyle(
