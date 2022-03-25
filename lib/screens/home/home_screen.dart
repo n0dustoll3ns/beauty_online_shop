@@ -32,7 +32,16 @@ AppBar buildAppBar() {
         onPressed: () {},
         icon: Icon(Icons.search),
       ),
-      CartIcon(),
+      Stack(
+        alignment: Alignment.center,
+        children: [
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.shopping_bag_outlined),
+          ),
+          EmptynessIndicatorOfCart(),
+        ],
+      ),
       SizedBox(
         width: kDefaultPaddin / 2,
       ),

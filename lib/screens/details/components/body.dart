@@ -72,8 +72,7 @@ class _BodyState extends State<Body> {
                                           padding: const EdgeInsets.all(2.5),
                                           child: Text(
                                             widget.product.properties[index]
-                                                .volume
-                                                ,
+                                                .volume,
                                             textScaleFactor: 0.8,
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
@@ -123,7 +122,9 @@ class _BodyState extends State<Body> {
                     ],
                   ),
                 ),
-                ProductTitleWithImage(title: widget.product.title,properties: widget.product.properties[_selectedVolume]),
+                ProductTitleWithImage(
+                    title: widget.product.title,
+                    properties: widget.product.properties[_selectedVolume]),
               ],
             ),
           ),

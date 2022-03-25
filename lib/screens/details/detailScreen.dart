@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../constants.dart';
 import '../../../models/perfumery.dart';
 
+import '../home/components/cart_icon.dart';
 import 'components/bottom_detail_page_bar.dart';
 
 class DetailPage extends StatefulWidget {
@@ -14,7 +15,7 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
-  int _selectedVolume = 0;
+  int _selectedProperty = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,15 @@ class _DetailPageState extends State<DetailPage> {
         elevation: 0,
         actions: <Widget>[
           IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-          IconButton(onPressed: () {}, icon: Icon(Icons.shopping_bag_outlined)),
+          Stack(
+            children: [
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.shopping_bag_outlined),
+              ),
+              EmptynessIndicatorOfCart(),
+            ],
+          ),
           SizedBox(
             width: kDefaultPaddin / 2,
           ),
@@ -33,8 +42,7 @@ class _DetailPageState extends State<DetailPage> {
       ),
       body: Body(product: widget.product),
       bottomNavigationBar: BottomDetailPageBar(
-          product: widget.product,
-          selectedVolume: _selectedVolume),
+          product: widget.product, selectedVolume: _selectedProperty),
     );
   }
 }

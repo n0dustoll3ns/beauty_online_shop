@@ -7,7 +7,7 @@ import '../../../models/perfumery.dart';
 
 class BottomDetailPageBar extends StatelessWidget {
   final Perfumery product;
-  int selectedVolume;
+  final int selectedVolume;
   BottomDetailPageBar({
     Key? key,
     required this.product,
@@ -30,9 +30,10 @@ class BottomDetailPageBar extends StatelessWidget {
             ),
             child: IconButton(
               onPressed: () {
-                product.properties =
-                    product.properties.sublist(selectedVolume, selectedVolume);
-                Provider.of<CartModel>(context, listen: false).add(product);
+                Perfumery addingProduct = product;
+                addingProduct.properties =
+                    addingProduct.properties.sublist(selectedVolume, selectedVolume);
+                Provider.of<CartModel>(context, listen: false).add(addingProduct);
               },
               icon: Icon(
                 Icons.add_shopping_cart_rounded,
