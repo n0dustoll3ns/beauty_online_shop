@@ -4,7 +4,6 @@ import '../../../models/perfumery.dart';
 import 'cart_counter_w_fav_btn.dart';
 import 'description.dart';
 import 'product_title_with_image.dart';
-import 'props_layout.dart';
 
 class Body extends StatefulWidget {
   const Body({
@@ -44,80 +43,7 @@ class _BodyState extends State<Body> {
                   ),
                   child: Column(
                     children: <Widget>[
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('Volume'),
-                                Container(
-                                  height: 25,
-                                  child: ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount: widget.product.properties.length,
-                                    itemBuilder:
-                                        (BuildContext context, int index) {
-                                      return GestureDetector(
-                                        onTap: () {
-                                          setState(() {
-                                            _selectedVolume = index;
-                                          });
-                                        },
-                                        child: Container(
-                                          margin: const EdgeInsets.only(
-                                            top: kDefaultPaddin / 4,
-                                            right: kDefaultPaddin / 2,
-                                          ),
-                                          padding: const EdgeInsets.all(2.5),
-                                          child: Text(
-                                            widget.product.properties[index]
-                                                .volume
-                                                ,
-                                            textScaleFactor: 0.8,
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                              color: _selectedVolume == index
-                                                  ? Colors.white
-                                                  : Colors.black,
-                                            ),
-                                          ),
-                                          width: 28,
-                                          decoration: BoxDecoration(
-                                            color: _selectedVolume == index
-                                                ? Colors.black
-                                                : Colors.white,
-                                            borderRadius:
-                                                BorderRadius.circular(5.6),
-                                            border: Border.all(
-                                              color: Color(0XFF000000),
-                                            ),
-                                          ),
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                          Expanded(
-                            child: RichText(
-                              text: TextSpan(
-                                style: TextStyle(color: kTextColor),
-                                children: [
-                                  TextSpan(text: "Brand\n"),
-                                  TextSpan(
-                                    text: '${widget.product.brand.name}',
-                                    style:
-                                        Theme.of(context).textTheme.headline6!,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                      buildPropsLayout(context),
                       CartCounter_w_FavBtn(),
                       Description(product: widget.product),
                     ],
@@ -130,5 +56,82 @@ class _BodyState extends State<Body> {
         ],
       ),
     );
+  }
+
+  Row buildPropsLayout(BuildContext context) {
+    return Row(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Volume'),
+                              Container(
+                                height: 25,
+                                child: ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: widget.product.properties.length,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    return GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          _selectedVolume = index;
+                                        });
+                                      },
+                                      child: Container(
+                                        margin: const EdgeInsets.only(
+                                          top: kDefaultPaddin / 4,
+                                          right: kDefaultPaddin / 2,
+                                        ),
+                                        padding: const EdgeInsets.all(2.5),
+                                        child: Text(
+                                          widget.product.properties[index]
+                                              .volume
+                                              ,
+                                          textScaleFactor: 0.8,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            color: _selectedVolume == index
+                                                ? Colors.white
+                                                : Colors.black,
+                                          ),
+                                        ),
+                                        width: 28,
+                                        decoration: BoxDecoration(
+                                          color: _selectedVolume == index
+                                              ? Colors.black
+                                              : Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(5.6),
+                                          border: Border.all(
+                                            color: Color(0XFF000000),
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: RichText(
+                            text: TextSpan(
+                              style: TextStyle(color: kTextColor),
+                              children: [
+                                TextSpan(text: "Brand\n"),
+                                TextSpan(
+                                  text: '${widget.product.brand.name}',
+                                  style:
+                                      Theme.of(context).textTheme.headline6!,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    );
   }
 }
