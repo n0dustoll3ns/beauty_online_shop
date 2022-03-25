@@ -47,7 +47,7 @@ List<Perfumery> perfumery = [
       PerfumeryProperties(
         count: 2,
         id: 8,
-        price: 38400,
+        price: 30280,
         volume: '3×10',
       ),
     ],

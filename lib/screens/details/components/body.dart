@@ -82,7 +82,7 @@ class _BodyState extends State<Body> {
                                                   : Colors.black,
                                             ),
                                           ),
-                                          width: 28,
+                                          width: 32,
                                           decoration: BoxDecoration(
                                             color: _selectedVolume == index
                                                 ? Colors.black
