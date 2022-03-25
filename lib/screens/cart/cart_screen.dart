@@ -1,15 +1,15 @@
 import 'package:beauty_online_shop/models/perfumery.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:beauty_online_shop/models/cart_model.dart';
 
-class CartModel extends ChangeNotifier{
-  final List<int> _items = [];
 
+class CartModel extends ChangeNotifier {
+  final List<Perfumery> _items = items_in_cart;
 }
 
-
 class CartScreen extends StatefulWidget {
-  const CartScreen({ Key? key }) : super(key: key);
+  const CartScreen({Key? key}) : super(key: key);
 
   @override
   State<CartScreen> createState() => _CartScreenState();
@@ -18,8 +18,6 @@ class CartScreen extends StatefulWidget {
 class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
-    );
+    return Container();
   }
 }
