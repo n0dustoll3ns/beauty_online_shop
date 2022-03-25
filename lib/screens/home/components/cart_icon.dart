@@ -27,7 +27,7 @@ class CartIcon extends StatelessWidget {
                 height: 9,
                 width: 9,
                 decoration: BoxDecoration(
-                  color: _items_in_cart.items_in_cart.isEmpty ? Colors.transparent:Colors.redAccent,
+                  color: _items_in_cart.items_in_cart.isEmpty ? Colors.transparent: Colors.red,
                   shape: BoxShape.circle,
                 ),
               ),

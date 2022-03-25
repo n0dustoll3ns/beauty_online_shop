@@ -1,11 +1,13 @@
 import 'package:beauty_online_shop/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
+import '../../../models/cart_model.dart';
 import '../../../models/perfumery.dart';
 
 class BottomDetailPageBar extends StatelessWidget {
   final Perfumery product;
-  PerfumeryProperties selectedVolume;
+  int selectedVolume;
   BottomDetailPageBar({
     Key? key,
     required this.product,
@@ -27,7 +29,11 @@ class BottomDetailPageBar extends StatelessWidget {
               border: Border.all(color: product.color),
             ),
             child: IconButton(
-              onPressed:  () {},
+              onPressed: () {
+                product.properties =
+                    product.properties.sublist(selectedVolume, selectedVolume);
+                Provider.of<CartModel>(context, listen: false).add(product);
+              },
               icon: Icon(
                 Icons.add_shopping_cart_rounded,
                 color: product.color,
