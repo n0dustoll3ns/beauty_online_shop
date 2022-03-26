@@ -32,8 +32,8 @@ class BottomDetailPageBar extends StatelessWidget {
               onPressed: () {
                 Perfumery addingProduct = product;
                 addingProduct.properties =
-                    addingProduct.properties.sublist(selectedVolume, selectedVolume);
-                Provider.of<CartModel>(context, listen: false).add(addingProduct);
+                    addingProduct.properties.sublist(selectedVolume, selectedVolume+1);
+                Provider.of<CartModel>(context, listen: false).add(addingProduct, selectedVolume);
               },
               icon: Icon(
                 Icons.add_shopping_cart_rounded,

@@ -10,7 +10,8 @@ class CartModel extends ChangeNotifier {
   List<Perfumery> get items_in_cart => _items_in_cart;
   int get totalPrice => _items_in_cart.length * 42;
 
-  void add(Perfumery item) {
+  void add(Perfumery item, int index) {
+    item.properties = item.properties.sublist(index, index + 1);
     _items_in_cart.add(item);
     notifyListeners();
   }
