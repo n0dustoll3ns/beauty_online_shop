@@ -27,6 +27,7 @@ class _DetailPageState extends State<DetailPage> {
         actions: <Widget>[
           IconButton(onPressed: () {}, icon: Icon(Icons.search)),
           Stack(
+            alignment: Alignment.center,
             children: [
               IconButton(
                 onPressed: () {},

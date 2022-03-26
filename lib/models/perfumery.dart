@@ -29,7 +29,7 @@ class PerfumeryProperties {
   }) : image = 'assets/images/$id.png' {}
 }
 
-List<Perfumery> perfumery = [
+final List<Perfumery> perfumery = [
   Perfumery(
     properties: [
       PerfumeryProperties(
