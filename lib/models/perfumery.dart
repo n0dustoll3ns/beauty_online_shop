@@ -29,7 +29,16 @@ class PerfumeryProperties {
   }) : image = 'assets/images/$id.png' {}
 }
 
-List<Perfumery> perfumery = [
+class ProductInCart {
+  final Perfumery product;
+  final int selectedProperty;
+  ProductInCart(
+    this.product,
+        this.selectedProperty,
+  );
+}
+
+final List<Perfumery> perfumery = [
   Perfumery(
     properties: [
       PerfumeryProperties(
@@ -47,7 +56,7 @@ List<Perfumery> perfumery = [
       PerfumeryProperties(
         count: 2,
         id: 8,
-        price: 38400,
+        price: 30280,
         volume: '3×10',
       ),
     ],
