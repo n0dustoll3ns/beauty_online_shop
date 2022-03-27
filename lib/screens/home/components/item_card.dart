@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../constants.dart';
 import 'package:beauty_online_shop/models/perfumery.dart';
 
-class ProductCard extends StatelessWidget {
+class ProductCard extends StatefulWidget {
   final Perfumery product;
   final Function press;
   const ProductCard({
@@ -12,10 +12,15 @@ class ProductCard extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<ProductCard> createState() => _ProductCardState();
+}
+
+class _ProductCardState extends State<ProductCard> {
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        press();
+        widget.press();
       },
       child: Column(
         children: <Widget>[
@@ -24,25 +29,25 @@ class ProductCard extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.all(kDefaultPaddin),
               decoration: BoxDecoration(
-                  color: product.color,
+                  color: widget.product.color,
                   borderRadius: BorderRadius.circular(16)),
               child: Hero(
-                tag: "${product.properties[0].id}",
-                child: Image.asset(product.properties[0].image),
+                tag: "${widget.product.properties[0].id}",
+                child: Image.asset(widget.product.properties[0].image),
               ),
             ),
           ),
           Container(
             padding: const EdgeInsets.symmetric(vertical: kDefaultPaddin / 4),
             child: Text(
-              product.title,
+              widget.product.title,
               textAlign: TextAlign.center,
               style: const TextStyle(
                 color: kTextLightColor,
               ),
             ),
           ),
-          Text('₽ ' + product.properties[0].price.toString())
+          Text('₽ ' + widget.product.properties[0].price.toString())
         ],
       ),
     );
