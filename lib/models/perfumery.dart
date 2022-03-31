@@ -16,6 +16,17 @@ class Perfumery {
     required this.country,
     required this.brand,
   });
+
+  String convertToString() {
+    List<String> propertiesToString = [];
+    
+    for (var i = 0; i < properties.length; i++) {
+    propertiesToString.add(properties[i].convertToString());
+  }
+
+    return '{"title":$title,"description":$description,"color":${color.value},"country":${country.name},"brand":${brand.name},"properties":$propertiesToString}';}
+      
+
 }
 
 class PerfumeryProperties {
@@ -26,7 +37,21 @@ class PerfumeryProperties {
     required this.price,
     required this.id,
     required this.count,
-  }) : image = 'assets/images/$id.png' {}
+  }) : image = 'assets/images/$id.png';
+
+  PerfumeryProperties.convertFromString(String input)
+      : volume = input.substring(10, input.indexOf(',"imag')),
+        image = input.substring(
+            input.indexOf('"image":') + 8, input.indexOf(',"count')),
+        count = int.parse(input.substring(
+            input.indexOf('"count":') + 8, input.indexOf(',"price"'))),
+        price = int.parse(input.substring(
+            input.indexOf('"price":') + 8, input.indexOf(',"id"'))),
+        id = int.parse(input.substring(
+            input.indexOf('"id":') + 5, input.lastIndexOf('}')));
+
+  String convertToString() =>
+      '{"volume":$volume,"image":$image,"count":$count,"price":$price,"id":$id}';
 }
 
 class ProductInCart {
@@ -34,7 +59,7 @@ class ProductInCart {
   final int selectedProperty;
   ProductInCart(
     this.product,
-        this.selectedProperty,
+    this.selectedProperty,
   );
 }
 

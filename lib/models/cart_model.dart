@@ -1,5 +1,6 @@
 import 'package:beauty_online_shop/models/perfumery.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 List<Perfumery> _items_in_cart = [];
 
@@ -12,7 +13,8 @@ class CartModel extends ChangeNotifier {
 
   void add(Perfumery item, int index) {
     ProductInCart productInCart = ProductInCart(item, index);
-    if(_items_in_cart.contains(productInCart)){};
+    if (_items_in_cart.contains(productInCart)) {}
+    ;
     _items_in_cart.add(productInCart);
     notifyListeners();
   }
@@ -20,5 +22,17 @@ class CartModel extends ChangeNotifier {
   void removeAll() {
     _items_in_cart.clear();
     notifyListeners();
+  }
+
+  void loadState() async {
+    var prefs = await SharedPreferences.getInstance();
+  }
+
+  void saveState(Perfumery item, int index) async {
+    var prefs = await SharedPreferences.getInstance();
+    List<String> list = [];
+    _items_in_cart.forEach((element) {
+    });
+    prefs.setStringList('cart', list);
   }
 }
