@@ -44,7 +44,6 @@ class CartModel extends ChangeNotifier {
 
   void saveState() async {
     var storage = await SharedPreferences.getInstance();
-
     _items_in_cart_counter.forEach((productInCart, count) {
       storage.setInt(jsonEncode(productInCart.toJson()), count);
     });
