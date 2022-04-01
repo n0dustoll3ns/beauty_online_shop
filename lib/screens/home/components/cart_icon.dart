@@ -20,7 +20,7 @@ class EmptynessIndicatorOfCart extends StatelessWidget {
             width: 9,
             decoration: BoxDecoration(
               color: 
-              // _items_in_cart.unmodifiable_cart_list.isEmpty                  ? 
+              /// _items_in_cart.unmodifiable_cart_list.isEmpty                  ? 
                   Colors.transparent
                   // : Colors.red
                   ,
