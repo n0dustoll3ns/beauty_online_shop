@@ -17,15 +17,24 @@ class Perfumery {
     required this.brand,
   });
 
-  String convertToString() {
-    List<String> propertiesToString = [];
-    
-    for (var i = 0; i < properties.length; i++) {
-    propertiesToString.add(properties[i].convertToString());
-  }
+   Perfumery.fromJson(Map json)
+      : title = json['title'],
+        description = json['description'],
+        color = Color(json['color']),
+        country = Countries[json['country']],
+        brand = Brands[json['brand']],
+        properties = (json['properties'] as List)
+            .map((e) => PerfumeryProperties.fromJson(e))
+            .toList();
 
-    return '{"title":$title,"description":$description,"color":${color.value},"country":${country.name},"brand":${brand.name},"properties":$propertiesToString}';}
-      
+  Map toJson() => {
+        "title": title,
+        "description": description,
+        "color": color.value,
+        "country": country.id,
+        "brand": brand.id,
+        "properties": properties.map((i) => i.toJson()).toList()
+      };
 
 }
 
@@ -39,20 +48,23 @@ class PerfumeryProperties {
     required this.count,
   }) : image = 'assets/images/$id.png';
 
-  PerfumeryProperties.convertFromString(String input)
-      : volume = input.substring(10, input.indexOf(',"imag')),
-        image = input.substring(
-            input.indexOf('"image":') + 8, input.indexOf(',"count')),
-        count = int.parse(input.substring(
-            input.indexOf('"count":') + 8, input.indexOf(',"price"'))),
-        price = int.parse(input.substring(
-            input.indexOf('"price":') + 8, input.indexOf(',"id"'))),
-        id = int.parse(input.substring(
-            input.indexOf('"id":') + 5, input.lastIndexOf('}')));
+  PerfumeryProperties.fromJson(Map input)
+      : volume = input['volume'],
+        image = input['image'],
+        count = input['count'],
+        price = input['price'],
+        id = input['id'];
 
-  String convertToString() =>
-      '{"volume":$volume,"image":$image,"count":$count,"price":$price,"id":$id}';
+  Map toJson() => {
+        'volume': volume,
+        'image': image,
+        'count': count,
+        'price': price,
+        'id': id,
+      };
+
 }
+
 
 class ProductInCart {
   final Perfumery product;
