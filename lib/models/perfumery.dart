@@ -17,16 +17,6 @@ class Perfumery {
     required this.brand,
   });
 
-   Perfumery.fromJson(Map json)
-      : title = json['title'],
-        description = json['description'],
-        color = Color(json['color']),
-        country = Countries[json['country']],
-        brand = Brands[json['brand']],
-        properties = (json['properties'] as List)
-            .map((e) => PerfumeryProperties.fromJson(e))
-            .toList();
-
   Map toJson() => {
         "title": title,
         "description": description,
@@ -36,6 +26,15 @@ class Perfumery {
         "properties": properties.map((i) => i.toJson()).toList()
       };
 
+  Perfumery.fromJson(Map json)
+      : title = json['title'],
+        description = json['description'],
+        color = Color(json['color']),
+        country = Countries[json['country']],
+        brand = Brands[json['brand']],
+        properties = (json['properties'] as List)
+            .map((e) => PerfumeryProperties.fromJson(e))
+            .toList();
 }
 
 class PerfumeryProperties {
@@ -48,13 +47,6 @@ class PerfumeryProperties {
     required this.count,
   }) : image = 'assets/images/$id.png';
 
-  PerfumeryProperties.fromJson(Map input)
-      : volume = input['volume'],
-        image = input['image'],
-        count = input['count'],
-        price = input['price'],
-        id = input['id'];
-
   Map toJson() => {
         'volume': volume,
         'image': image,
@@ -63,8 +55,13 @@ class PerfumeryProperties {
         'id': id,
       };
 
+  PerfumeryProperties.fromJson(Map input)
+      : volume = input['volume'],
+        image = input['image'],
+        count = input['count'],
+        price = input['price'],
+        id = input['id'];
 }
-
 
 class ProductInCart {
   final Perfumery product;
@@ -73,6 +70,15 @@ class ProductInCart {
     this.product,
     this.selectedProperty,
   );
+
+  Map toJson() => {
+        "selectedProperty": selectedProperty,
+        "product": product.toJson(),
+      };
+
+  ProductInCart.fromJson(Map input)
+      : product = input['product'],
+        selectedProperty = input['selectedProperty'];
 }
 
 final List<Perfumery> perfumery = [

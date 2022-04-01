@@ -12,7 +12,7 @@ class Body extends StatelessWidget {
         return Column(
           children: [
             ListView.builder(
-              itemCount: _items_in_cart.unmodifiable_cart_list.length,
+              // itemCount: _items_in_cart.unmodifiable_cart_list.length,
               itemBuilder: (context, index) => Row(
                 children: [],
               ),
