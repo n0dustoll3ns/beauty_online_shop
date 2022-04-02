@@ -29,8 +29,9 @@ class BottomDetailPageBar extends StatelessWidget {
               border: Border.all(color: product.color),
             ),
             child: IconButton(
-              onPressed: () {
-                Provider.of<CartModel>(context, listen: false).add(product, selectedVolume);
+              onPressed: 
+              () {
+                // Provider.of<CartModel>(context, listen: false).add(product, selectedVolume);
               },
               icon: Icon(
                 Icons.add_shopping_cart_rounded,

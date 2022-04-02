@@ -5,7 +5,7 @@ import 'constants.dart';
 import 'models/cart_model.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(create: (context) => CartModel(),child: MyApp()));
+  runApp(ChangeNotifierProvider(create: (context) => CartModel.fromState(),child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
