@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 
 import '../../models/cart_model.dart';
@@ -21,7 +22,7 @@ class CartScreen extends StatelessWidget {
       title: Center(
         child: Column(
           children: [
-            Text(
+            const Text(
               'Your Cart',
               style: TextStyle(
                 fontSize: 22,
@@ -40,7 +41,7 @@ class CartScreen extends StatelessWidget {
       ),
       actions: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {Provider.of<CartModel>(context, listen: false).removeAll();},
           icon: const Icon(Icons.restore_from_trash_sharp),
         )
       ],

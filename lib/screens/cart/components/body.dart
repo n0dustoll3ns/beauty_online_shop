@@ -9,11 +9,27 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<CartModel>(
       builder: (context, cart, child) {
+        var cartlist = cart.unmodifiable_cart_list;
         return ListView.builder(
-          itemCount: cart.unmodifiable_cart_list.length,
-          itemBuilder: (context, index) => Row(
-            children: [],
-          ),
+          itemCount: cartlist.length,
+          itemBuilder: (context, index) {
+            var key = cartlist.keys.elementAt(index);
+            return Row(
+              children: [
+                SizedBox(
+                  width: 88,
+                  child: AspectRatio(
+                    aspectRatio: 1,
+                    child: Container(
+                      decoration: BoxDecoration(color: Colors.black54,borderRadius: BorderRadius.circular(12)),
+                      child: Image.asset(
+                          key.product.properties[key.selectedProperty].image),
+                    ),
+                  ),
+                )
+              ],
+            );
+          },
         );
       },
     );

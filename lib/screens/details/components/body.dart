@@ -45,7 +45,6 @@ class _BodyState extends State<Body> {
                   child: Column(
                     children: <Widget>[
                       buildSelectableProperties(context),
-
                       CartCounter_w_FavBtn(),
                       Description(product: widget.product),
                     ],
