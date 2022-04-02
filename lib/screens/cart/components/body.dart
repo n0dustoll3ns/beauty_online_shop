@@ -8,18 +8,26 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<CartModel>(
-      builder: (context, _items_in_cart, child) {
-        return Column(
-          children: [
-            // ListView.builder(
-            //   // itemCount: _items_in_cart.unmodifiable_cart_list.length,
-            //   itemBuilder: (context, index) => Row(
-            //     children: [],
-            //   ),
-            // ),
-          ],
+      builder: (context, cart, child) {
+        return ListView.builder(
+          itemCount: cart.unmodifiable_cart_list.length,
+          itemBuilder: (context, index) => Row(
+            children: [],
+          ),
         );
       },
     );
   }
 }
+
+
+// return Consumer<CartModel>(
+//       builder: (context, _items_in_cart, child) {
+//         return ListView.builder(
+//               itemCount: cart.unmodifiable_cart_list.length,
+//               itemBuilder: (context, index) => Row(
+//                 children: [],
+//               ),
+            
+//       },
+//     );

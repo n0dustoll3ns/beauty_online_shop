@@ -34,7 +34,8 @@ class CartModel extends ChangeNotifier {
 
   void removeAll() async {
     var storage = await SharedPreferences.getInstance();
-    for (String key in storage.getKeys()) {
+    Set<String> setToRemove = storage.getKeys();
+    for (String key in setToRemove) {
       storage.remove(key);
     }
     _items_in_cart.clear();
