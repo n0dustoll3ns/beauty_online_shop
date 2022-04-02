@@ -77,7 +77,7 @@ class ProductInCart {
       };
 
   ProductInCart.fromJson(Map input)
-      : product = input['product'],
+      : product = Perfumery.fromJson(input['product']),
         selectedProperty = input['selectedProperty'];
 }
 

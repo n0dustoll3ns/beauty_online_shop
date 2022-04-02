@@ -4,36 +4,32 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 
 class CartModel extends ChangeNotifier {
-  Map<ProductInCart, int> _items_in_cart;
-  CartModel.fromState() : _items_in_cart = {} {
+  Map<ProductInCart, int> _items_in_cart = {};
+  CartModel.fromStorage() {
     loadState();
   }
 
   void loadState() async {
     var storage = await SharedPreferences.getInstance();
-    for (String key in storage.getKeys()) {
-      _items_in_cart.addAll(
-          {ProductInCart.fromJson(jsonDecode(key)): storage.getInt(key)!});
-    }
-  }
 
-  Map<ProductInCart, int> value() {
-    return _items_in_cart;
+    for (String key in storage.getKeys()) {
+      _items_in_cart[ProductInCart.fromJson(jsonDecode(key))] =
+          storage.getInt(key)!;
+      storage.remove(key);
+    }
+    notifyListeners();
   }
 
   Map<ProductInCart, int> get unmodifiable_cart_list => _items_in_cart;
 
-  void add(Perfumery item, int index) async {
-    var storage = await SharedPreferences.getInstance();
+  void add(Perfumery item, int index) {
     ProductInCart productInCart = ProductInCart(item, index);
-    String productInCartInString = jsonEncode(productInCart.toJson());
-    if (storage.containsKey(productInCartInString)) {
-      storage.setInt(
-          productInCartInString, storage.getInt(productInCartInString)! + 1);
+    if (_items_in_cart.containsKey(productInCart)) {
+      _items_in_cart.update(productInCart, (value) => value + 1);
     } else {
-      storage.setInt(productInCartInString, 1);
+      _items_in_cart[productInCart] = 1;
     }
-    ;
+    saveState(productInCart);
     notifyListeners();
   }
 
@@ -44,7 +40,7 @@ class CartModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void saveState() async {
+  void saveState(productInCart) async {
     var storage = await SharedPreferences.getInstance();
     storage.clear();
     _items_in_cart.forEach((productInCart, count) {

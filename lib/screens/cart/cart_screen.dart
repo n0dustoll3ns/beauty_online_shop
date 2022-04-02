@@ -1,22 +1,22 @@
-import 'package:beauty_online_shop/models/perfumery.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:beauty_online_shop/models/cart_model.dart';
 
+import 'components/body.dart';
 
-class CartModel extends ChangeNotifier {
-}
-
-class CartScreen extends StatefulWidget {
+class CartScreen extends StatelessWidget {
   const CartScreen({Key? key}) : super(key: key);
 
   @override
-  State<CartScreen> createState() => _CartScreenState();
-}
-
-class _CartScreenState extends State<CartScreen> {
-  @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: buildAppBar(),
+      body: Body(),
+    );
+  }
+
+  AppBar buildAppBar() {
+    return AppBar(
+      title: Column(children: []),
+      actions: [],
+    );
   }
 }
