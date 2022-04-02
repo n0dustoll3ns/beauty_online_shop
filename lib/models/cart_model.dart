@@ -15,7 +15,6 @@ class CartModel extends ChangeNotifier {
     for (String key in storage.getKeys()) {
       _items_in_cart[ProductInCart.fromJson(jsonDecode(key))] =
           storage.getInt(key)!;
-      storage.remove(key);
     }
     notifyListeners();
   }
@@ -35,7 +34,9 @@ class CartModel extends ChangeNotifier {
 
   void removeAll() async {
     var storage = await SharedPreferences.getInstance();
-    storage.clear();
+    for (String key in storage.getKeys()) {
+      storage.remove(key);
+    }
     _items_in_cart.clear();
     notifyListeners();
   }

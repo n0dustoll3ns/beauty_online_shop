@@ -11,12 +11,12 @@ class Body extends StatelessWidget {
       builder: (context, _items_in_cart, child) {
         return Column(
           children: [
-            ListView.builder(
-              // itemCount: _items_in_cart.unmodifiable_cart_list.length,
-              itemBuilder: (context, index) => Row(
-                children: [],
-              ),
-            ),
+            // ListView.builder(
+            //   // itemCount: _items_in_cart.unmodifiable_cart_list.length,
+            //   itemBuilder: (context, index) => Row(
+            //     children: [],
+            //   ),
+            // ),
           ],
         );
       },

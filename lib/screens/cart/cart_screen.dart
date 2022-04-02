@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../models/cart_model.dart';
 import 'components/body.dart';
 
 class CartScreen extends StatelessWidget {
@@ -8,15 +10,40 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(),
+      appBar: buildAppBar(context),
       body: Body(),
     );
   }
 
-  AppBar buildAppBar() {
+  AppBar buildAppBar(context) {
     return AppBar(
-      title: Column(children: []),
-      actions: [],
+      backgroundColor: Colors.grey,
+      title: Center(
+        child: Column(
+          children: [
+            Text(
+              'Your Cart',
+              style: TextStyle(
+                fontSize: 22,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Consumer<CartModel>(
+              builder: (context, cart, child) {
+                return Text('${cart.unmodifiable_cart_list.length} items',
+                    style: Theme.of(context).textTheme.caption);
+              },
+            ),
+          ],
+        ),
+      ),
+      actions: [
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.restore_from_trash_sharp),
+        )
+      ],
     );
   }
 }

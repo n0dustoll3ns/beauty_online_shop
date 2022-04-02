@@ -1,3 +1,4 @@
+import 'package:beauty_online_shop/screens/cart/cart_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:beauty_online_shop/constants.dart';
 import 'components/body.dart';
@@ -9,13 +10,13 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(),
+      appBar: buildAppBar(context),
       body: Body(),
     );
   }
 }
 
-AppBar buildAppBar() {
+AppBar buildAppBar(context) {
   return AppBar(
     backgroundColor: Colors.white,
     elevation: 0,
@@ -36,7 +37,14 @@ AppBar buildAppBar() {
         alignment: Alignment.center,
         children: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CartScreen(),
+                ),
+              );
+            },
             icon: Icon(Icons.shopping_bag_outlined),
           ),
           EmptynessIndicatorOfCart(),
