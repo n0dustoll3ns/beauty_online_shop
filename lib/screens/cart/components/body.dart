@@ -1,4 +1,6 @@
 import 'package:beauty_online_shop/constants.dart';
+import 'package:beauty_online_shop/models/perfumery.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:beauty_online_shop/models/cart_model.dart';
 import 'package:provider/provider.dart';
@@ -14,30 +16,71 @@ class Body extends StatelessWidget {
         return ListView.builder(
           itemCount: cartlist.length,
           itemBuilder: (context, index) {
-            var key = cartlist.keys.elementAt(index);
-            return Row(
-              children: [
-                SizedBox(
-                  width: 88,
-                  child: AspectRatio(
-                    aspectRatio: 1,
-                    child: Container(
-                      padding: EdgeInsets.all(kDefaultPaddin),
-                      decoration: BoxDecoration(color: Colors.black54,borderRadius: BorderRadius.circular(12)),
-                      child: Image.asset(
-                          key.product.properties[key.selectedProperty].image),
-                    ),
-                  ),
-                ),
-                SizedBox(width: 20),
-                Column(children: [
-                  Text(key.product.title)
-                ],)
-              ],
-            );
+            var productInCart = cartlist.keys.elementAt(index);
+            return CartItemCard(
+                productInCart: productInCart, cartlist: cartlist);
           },
         );
       },
+    );
+  }
+}
+
+class CartItemCard extends StatelessWidget {
+  const CartItemCard({
+    Key? key,
+    required this.productInCart,
+    required this.cartlist,
+  }) : super(key: key);
+
+  final ProductInCart productInCart;
+  final Map<ProductInCart, int> cartlist;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        SizedBox(
+          width: 88,
+          child: AspectRatio(
+            aspectRatio: 1,
+            child: Container(
+              padding: EdgeInsets.all(kDefaultPaddin),
+              decoration: BoxDecoration(
+                  color: Colors.black54,
+                  borderRadius: BorderRadius.circular(12)),
+              child: Image.asset(productInCart
+                  .product.properties[productInCart.selectedProperty].image),
+            ),
+          ),
+        ),
+        SizedBox(width: 20),
+        Column(
+          children: [
+            Text(productInCart.product.title +
+                ' ' +
+                '${productInCart.product.properties[productInCart.selectedProperty].volume}'),
+            Text.rich(
+              TextSpan(
+                style: TextStyle(
+                  color: Colors.orangeAccent,
+                ),
+                text:
+                    '\₽ ${productInCart.product.properties[productInCart.selectedProperty].price} ',
+                children: [
+                  TextSpan(
+                    text: 'ˣ${cartlist[productInCart]} ',
+                    children: [],
+                    style: TextStyle(
+                      color: Colors.black45,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

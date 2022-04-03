@@ -1,7 +1,8 @@
-import 'package:beauty_online_shop/models/perfumery.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
+
+import '../models/perfumery.dart';
 
 class CartModel extends ChangeNotifier {
   Map<ProductInCart, int> _items_in_cart = {};
@@ -34,8 +35,7 @@ class CartModel extends ChangeNotifier {
 
   void removeAll() async {
     var storage = await SharedPreferences.getInstance();
-    Set<String> setToRemove = storage.getKeys();
-    for (var key in setToRemove) {
+    for (var key in storage.getKeys()) {
       storage.remove(key);
     }
     _items_in_cart.clear();
