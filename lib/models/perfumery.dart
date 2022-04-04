@@ -5,7 +5,7 @@ import '../props/countries.dart';
 class ProductInCart {
   final Perfumery fragrance;
   final int selectedVolume;
-  Perfumery({
+  ProductInCart({
     required this.fragrance,
     required this.selectedVolume,
   });
