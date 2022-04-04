@@ -18,9 +18,11 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  int _selectedVolume = 0;
+  int _selectedProperty = 0;
+
   @override
   Widget build(BuildContext context) {
+    int _selectedProperty = widget.product.properties.keys.first;
     Size size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Column(
@@ -52,7 +54,7 @@ class _BodyState extends State<Body> {
                 ),
                 ProductTitleWithImage(
                     title: widget.product.title,
-                    properties: widget.product.properties[_selectedVolume]),
+                    properties: widget.product.properties[_selectedProperty]!),
               ],
             ),
           ),
@@ -75,10 +77,11 @@ class _BodyState extends State<Body> {
                   scrollDirection: Axis.horizontal,
                   itemCount: widget.product.properties.length,
                   itemBuilder: (BuildContext context, int index) {
+                    int key = widget.product.properties.keys.elementAt(index);
                     return GestureDetector(
                       onTap: () {
                         setState(() {
-                          _selectedVolume = index;
+                          _selectedProperty = key;
                         });
                       },
                       child: Container(
@@ -88,18 +91,18 @@ class _BodyState extends State<Body> {
                         ),
                         padding: const EdgeInsets.all(2.5),
                         child: Text(
-                          widget.product.properties[index].volume,
+                          widget.product.properties[key]!.volume,
                           textScaleFactor: 0.8,
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: _selectedVolume == index
+                            color: _selectedProperty == key
                                 ? Colors.white
                                 : Colors.black,
                           ),
                         ),
                         width: 32,
                         decoration: BoxDecoration(
-                          color: _selectedVolume == index
+                          color: _selectedProperty == key
                               ? Colors.black
                               : Colors.white,
                           borderRadius: BorderRadius.circular(5.6),
@@ -131,6 +134,5 @@ class _BodyState extends State<Body> {
         ),
       ],
     );
-
   }
 }

@@ -32,7 +32,7 @@ class CartScreen extends StatelessWidget {
             ),
             Consumer<CartModel>(
               builder: (context, cart, child) {
-                return Text('${cart.unmodifiable_cart_list.length} items',
+                return Text('${cart.getUnmodifiable_cart_list().length} items',
                     style: Theme.of(context).textTheme.caption);
               },
             ),

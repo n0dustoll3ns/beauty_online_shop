@@ -32,8 +32,8 @@ class _ProductCardState extends State<ProductCard> {
                   color: widget.product.color,
                   borderRadius: BorderRadius.circular(16)),
               child: Hero(
-                tag: "${widget.product.properties[0].id}",
-                child: Image.asset(widget.product.properties[0].image),
+                tag: "${widget.product.properties[widget.product.properties.keys.toList().first]!.id}",
+                child: Image.asset(widget.product.properties[widget.product.properties.keys.toList().first]!.image),
               ),
             ),
           ),
@@ -47,7 +47,7 @@ class _ProductCardState extends State<ProductCard> {
               ),
             ),
           ),
-          Text('₽ ' + widget.product.properties[0].price.toString())
+          Text('₽ ' + widget.product.properties[widget.product.properties.keys.toList().first]!.price.toString())
         ],
       ),
     );

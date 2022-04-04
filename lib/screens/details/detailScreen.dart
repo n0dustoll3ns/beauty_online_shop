@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../constants.dart';
 import '../../../models/perfumery.dart';
 
+import '../cart/cart_screen.dart';
 import '../home/components/cart_icon.dart';
 import 'components/bottom_detail_page_bar.dart';
 
@@ -30,7 +31,14 @@ class _DetailPageState extends State<DetailPage> {
             alignment: Alignment.center,
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CartScreen(),
+                    ),
+                  );
+                },
                 icon: Icon(Icons.shopping_bag_outlined),
               ),
               EmptynessIndicatorOfCart(),

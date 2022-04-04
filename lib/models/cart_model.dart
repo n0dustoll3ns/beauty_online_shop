@@ -5,31 +5,44 @@ import 'dart:convert';
 import '../models/perfumery.dart';
 
 class CartModel extends ChangeNotifier {
-  Map<ProductInCart, int> _items_in_cart = {};
+  Set<int> _itemIDs_in_cart = {};
   CartModel.fromStorage() {
     loadState();
   }
 
   void loadState() async {
     var storage = await SharedPreferences.getInstance();
-
-    for (String key in storage.getKeys()) {
-      _items_in_cart[ProductInCart.fromJson(jsonDecode(key))] =
-          storage.getInt(key)!;
+    if (storage.getStringList('cart') == null) {
+      storage.setStringList('cart', []);
+    }
+    for (String stringID in storage.getStringList('cart')!) {
+      int intID = int.parse(stringID);
+      _itemIDs_in_cart.add(intID);
     }
     notifyListeners();
   }
 
-  Map<ProductInCart, int> get unmodifiable_cart_list => _items_in_cart;
+  Map<Map<Perfumery, int>, int> getUnmodifiable_cart_list() {
+    Map<Map<Perfumery, int>, int> unmodifiable_cart_list = {};
+    _itemIDs_in_cart.forEach((iD) {
+      for (var item in perfumery) {
+        if (item.properties.containsKey(iD)) {
+          if (unmodifiable_cart_list.containsKey({item: iD})) {
+            unmodifiable_cart_list.update({item: iD}, (value) => value + 1);
+          } else {
+            unmodifiable_cart_list.addAll({
+              {item: iD}: 1
+            });
+          }
+        }
+      }
+    });
+    return unmodifiable_cart_list;
+  }
 
   void add(Perfumery item, int index) {
-    ProductInCart productInCart = ProductInCart(item, index);
-    if (_items_in_cart.containsKey(productInCart)) {
-      _items_in_cart.update(productInCart, (value) => value + 1);
-    } else {
-      _items_in_cart[productInCart] = 1;
-    }
-    saveState(productInCart);
+    _itemIDs_in_cart.add(item.properties[index]!.id);
+    saveState(_itemIDs_in_cart);
     notifyListeners();
   }
 
@@ -38,15 +51,17 @@ class CartModel extends ChangeNotifier {
     for (var key in storage.getKeys()) {
       storage.remove(key);
     }
-    _items_in_cart.clear();
+    _itemIDs_in_cart.clear();
     notifyListeners();
   }
 
-  void saveState(productInCart) async {
+  void saveState(Set<int> _items_in_cart) async {
     var storage = await SharedPreferences.getInstance();
-    storage.clear();
-    _items_in_cart.forEach((productInCart, count) {
-      storage.setInt(jsonEncode(productInCart.toJson()), count);
+    storage.setStringList('cart', []);
+    List<String> itemsStringList = [];
+    _items_in_cart.forEach((value) {
+      itemsStringList.add(value.toString());
     });
+    storage.setStringList('cart', itemsStringList);
   }
 }
