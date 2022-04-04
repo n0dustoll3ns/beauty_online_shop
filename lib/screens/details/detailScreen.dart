@@ -51,7 +51,7 @@ class _DetailPageState extends State<DetailPage> {
       ),
       body: Body(product: widget.product),
       bottomNavigationBar: BottomDetailPageBar(
-          product: widget.product, selectedVolume: _selectedProperty),
+          product: widget.product, selectedVolume: widget.product.properties.keys.toList()[_selectedProperty]),
     );
   }
 }

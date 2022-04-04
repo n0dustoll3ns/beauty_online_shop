@@ -18,11 +18,9 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  int _selectedProperty = 0;
-
+int _selectedProperty = 0;
   @override
   Widget build(BuildContext context) {
-    int _selectedProperty = widget.product.properties.keys.first;
     Size size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Column(
@@ -54,7 +52,7 @@ class _BodyState extends State<Body> {
                 ),
                 ProductTitleWithImage(
                     title: widget.product.title,
-                    properties: widget.product.properties[_selectedProperty]!),
+                    properties: widget.product.properties[widget.product.properties.keys.elementAt(_selectedProperty)]!),
               ],
             ),
           ),
@@ -81,7 +79,7 @@ class _BodyState extends State<Body> {
                     return GestureDetector(
                       onTap: () {
                         setState(() {
-                          _selectedProperty = key;
+                          _selectedProperty = index;
                         });
                       },
                       child: Container(
@@ -95,14 +93,14 @@ class _BodyState extends State<Body> {
                           textScaleFactor: 0.8,
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: _selectedProperty == key
+                            color: _selectedProperty == index
                                 ? Colors.white
                                 : Colors.black,
                           ),
                         ),
                         width: 32,
                         decoration: BoxDecoration(
-                          color: _selectedProperty == key
+                          color: _selectedProperty == index
                               ? Colors.black
                               : Colors.white,
                           borderRadius: BorderRadius.circular(5.6),
