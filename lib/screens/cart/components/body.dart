@@ -17,7 +17,9 @@ class Body extends StatelessWidget {
           itemBuilder: (context, index) {
             var itemInCart = cartlist.keys.elementAt(index);
             return CartItemCard(
-                itemInCart: itemInCart, count: cartlist[itemInCart]!,);
+              itemInCart: itemInCart,
+              count: cartlist[itemInCart]!,
+            );
           },
         );
       },
@@ -37,6 +39,8 @@ class CartItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var product = itemInCart.keys.toList().first;
+    var selectedVolume = itemInCart.values.toList().first;
     return Row(
       children: [
         Container(
@@ -49,7 +53,7 @@ class CartItemCard extends StatelessWidget {
               decoration: BoxDecoration(
                   color: Colors.black12,
                   borderRadius: BorderRadius.circular(12)),
-              child: Image.asset(itemInCart.keys.toList()[0].properties[itemInCart.values.toList()]![0]!),
+              child: Image.asset(product.properties[selectedVolume]!.image),
             ),
           ),
         ),
@@ -61,10 +65,10 @@ class CartItemCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                itemInCart.product.title +
+                product.title +
                     ' ' +
-                    itemInCart.product
-                        .properties[itemInCart.selectedProperty].volume +
+                    product.properties[selectedVolume]!
+                        .volume +
                     ' ml',
                 maxLines: 2,
                 overflow: TextOverflow.clip,
@@ -72,14 +76,14 @@ class CartItemCard extends StatelessWidget {
               Text.rich(
                 TextSpan(
                   text:
-                      '\₽ ${itemInCart.product.properties[itemInCart.selectedProperty].price} ',
+                      '\₽ ${product.properties[selectedVolume]!.price} ',
                   style: TextStyle(
                     color: Colors.orangeAccent,
                     fontWeight: FontWeight.bold,
                   ),
                   children: [
                     TextSpan(
-                      text: 'ˣ ${cartlist[itemInCart]} ',
+                      text: 'ˣ $count ',
                       children: [],
                       style: TextStyle(
                         color: Colors.black45,
