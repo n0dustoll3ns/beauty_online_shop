@@ -18,8 +18,7 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  int _selectedProperty = 0;
-
+int _selectedProperty = 0;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
