@@ -22,7 +22,6 @@ class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
-    int _selectedProperty = widget.product.properties.keys.first;
     Size size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Column(
@@ -54,7 +53,7 @@ class _BodyState extends State<Body> {
                 ),
                 ProductTitleWithImage(
                     title: widget.product.title,
-                    properties: widget.product.properties[_selectedProperty]!),
+                    properties: widget.product.properties.values.toList()[_selectedProperty]),
               ],
             ),
           ),
@@ -77,11 +76,10 @@ class _BodyState extends State<Body> {
                   scrollDirection: Axis.horizontal,
                   itemCount: widget.product.properties.length,
                   itemBuilder: (BuildContext context, int index) {
-                    int key = widget.product.properties.keys.elementAt(index);
                     return GestureDetector(
                       onTap: () {
                         setState(() {
-                          _selectedProperty = key;
+                          _selectedProperty = index;
                         });
                       },
                       child: Container(
@@ -90,19 +88,18 @@ class _BodyState extends State<Body> {
                           right: kDefaultPaddin / 2,
                         ),
                         padding: const EdgeInsets.all(2.5),
-                        child: Text(
-                          widget.product.properties[key]!.volume,
+                        child: Text(widget.product.properties.values.toList()[index].volume,
                           textScaleFactor: 0.8,
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: _selectedProperty == key
+                            color: _selectedProperty == index
                                 ? Colors.white
                                 : Colors.black,
                           ),
                         ),
                         width: 32,
                         decoration: BoxDecoration(
-                          color: _selectedProperty == key
+                          color: _selectedProperty == index
                               ? Colors.black
                               : Colors.white,
                           borderRadius: BorderRadius.circular(5.6),
