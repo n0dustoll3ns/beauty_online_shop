@@ -83,7 +83,7 @@ class CartItemCard extends StatelessWidget {
                   ),
                   children: [
                     TextSpan(
-                      text: 'ˣ $count ',
+                      text: '× $count ',
                       children: [],
                       style: TextStyle(
                         color: Colors.black45,

@@ -52,7 +52,7 @@ int _selectedProperty = 0;
                 ),
                 ProductTitleWithImage(
                     title: widget.product.title,
-                    properties: widget.product.properties[widget.product.properties.keys.elementAt(_selectedProperty)]!),
+                    properties: widget.product.properties.values.toList()[_selectedProperty]),
               ],
             ),
           ),
@@ -75,7 +75,6 @@ int _selectedProperty = 0;
                   scrollDirection: Axis.horizontal,
                   itemCount: widget.product.properties.length,
                   itemBuilder: (BuildContext context, int index) {
-                    int key = widget.product.properties.keys.elementAt(index);
                     return GestureDetector(
                       onTap: () {
                         setState(() {
@@ -88,8 +87,7 @@ int _selectedProperty = 0;
                           right: kDefaultPaddin / 2,
                         ),
                         padding: const EdgeInsets.all(2.5),
-                        child: Text(
-                          widget.product.properties[key]!.volume,
+                        child: Text(widget.product.properties.values.toList()[index].volume,
                           textScaleFactor: 0.8,
                           textAlign: TextAlign.center,
                           style: TextStyle(

@@ -5,22 +5,18 @@ import 'dart:convert';
 import '../models/perfumery.dart';
 
 class CartModel extends ChangeNotifier {
-  Set<int> _itemIDs_in_cart = {};
+  List<int> _itemIDs_in_cart = [];
   CartModel.fromStorage() {
     loadState();
   }
 
   void loadState() async {
     var storage = await SharedPreferences.getInstance();
-    if (storage.getStringList('cart') == null) {
-      storage.setStringList('cart', []);
-    }
-    for (String stringID in storage.getStringList('cart')!) {
-      int intID = int.parse(stringID);
-      _itemIDs_in_cart.add(intID);
-    }
+    var _itemIDs_in_cart = storage.getStringList('cart');
     notifyListeners();
   }
+
+  
 
   Map<Map<Perfumery, int>, int> getUnmodifiable_cart_list() {
     Map<Map<Perfumery, int>, int> unmodifiable_cart_list = {};
@@ -55,11 +51,11 @@ class CartModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void saveState(Set<int> _items_in_cart) async {
+  void saveState(List<int> _itemIDs_in_cart) async {
     var storage = await SharedPreferences.getInstance();
     storage.setStringList('cart', []);
     List<String> itemsStringList = [];
-    _items_in_cart.forEach((value) {
+    _itemIDs_in_cart.forEach((value) {
       itemsStringList.add(value.toString());
     });
     storage.setStringList('cart', itemsStringList);
