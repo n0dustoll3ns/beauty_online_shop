@@ -16,7 +16,7 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
-  int _selectedVolume = 0;
+  int selectedVolume = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,11 +48,19 @@ class _DetailPageState extends State<DetailPage> {
           ),
         ],
       ),
-      body: Body(product: widget.product, selectedProperty: _selectedVolume,),
+      body: Body(
+        product: widget.product,
+        selectedProperty: selectedVolume,
+        onPropertyChange: (int value) {
+          setState(
+            () => selectedVolume = value,
+          );
+        },
+      ),
       bottomNavigationBar: BottomDetailPageBar(
           product: widget.product,
           selectedVolume:
-              widget.product.properties.values.toList()[_selectedVolume].id),
+              widget.product.properties.values.toList()[selectedVolume].id),
     );
   }
 }
