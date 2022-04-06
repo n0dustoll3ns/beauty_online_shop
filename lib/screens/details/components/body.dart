@@ -10,15 +10,17 @@ class Body extends StatefulWidget {
   const Body({
     Key? key,
     required this.product,
+    required this.selectedProperty,
   }) : super(key: key);
   final Perfumery product;
+  final int selectedProperty;
 
   @override
   State<Body> createState() => _BodyState();
 }
 
 class _BodyState extends State<Body> {
-int _selectedProperty = 0;
+  int _selectedProperty = 0;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -52,7 +54,8 @@ int _selectedProperty = 0;
                 ),
                 ProductTitleWithImage(
                     title: widget.product.title,
-                    properties: widget.product.properties.values.toList()[_selectedProperty]),
+                    properties: widget.product.properties.values
+                        .toList()[_selectedProperty]),
               ],
             ),
           ),
@@ -87,7 +90,10 @@ int _selectedProperty = 0;
                           right: kDefaultPaddin / 2,
                         ),
                         padding: const EdgeInsets.all(2.5),
-                        child: Text(widget.product.properties.values.toList()[index].volume,
+                        child: Text(
+                          widget.product.properties.values
+                              .toList()[index]
+                              .volume,
                           textScaleFactor: 0.8,
                           textAlign: TextAlign.center,
                           style: TextStyle(

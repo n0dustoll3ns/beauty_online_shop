@@ -1,11 +1,11 @@
-import 'package:beauty_online_shop/screens/details/components/body.dart';
 import 'package:flutter/material.dart';
+
 import '../../../constants.dart';
 import '../../../models/perfumery.dart';
-
 import '../cart/cart_screen.dart';
 import '../home/components/cart_icon.dart';
 import 'components/bottom_detail_page_bar.dart';
+import 'components/body.dart';
 
 class DetailPage extends StatefulWidget {
   final Perfumery product;
@@ -48,7 +48,7 @@ class _DetailPageState extends State<DetailPage> {
           ),
         ],
       ),
-      body: Body(product: widget.product),
+      body: Body(product: widget.product, selectedProperty: _selectedVolume,),
       bottomNavigationBar: BottomDetailPageBar(
           product: widget.product,
           selectedVolume:
