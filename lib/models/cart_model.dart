@@ -11,11 +11,12 @@ class CartModel extends ChangeNotifier {
 
   void loadState() async {
     var storage = await SharedPreferences.getInstance();
-    var _itemIDs_in_cart = storage.getStringList('cart');
+    var _itemStringIDs_in_cart = storage.getStringList('cart');
+    _itemStringIDs_in_cart.forEach((element) {
+      _itemIDs_in_cart.add(int.parse(element));
+    });
     notifyListeners();
   }
-
-  
 
   Map<Map<Perfumery, int>, int> getUnmodifiable_cart_list() {
     Map<Map<Perfumery, int>, int> unmodifiable_cart_list = {};

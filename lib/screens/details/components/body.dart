@@ -115,7 +115,10 @@ class Body extends StatelessWidget {
                         ],
                       ),
                       CartCounter_w_FavBtn(),
-                      Description(product: product),
+                      Container(
+                          constraints:
+                              BoxConstraints(minHeight: size.height / 3.7),
+                          child: Description(product: product)),
                     ],
                   ),
                 ),
