@@ -20,6 +20,12 @@ class CartItemCard extends StatelessWidget {
     var product = itemInCart.keys.toList().first;
     var selectedVolume = itemInCart.values.toList().first;
     return Dismissible(
+      background: Container(
+        decoration: BoxDecoration(
+          color: Color(0XFFFFE6e6),
+          borderRadius: BorderRadius.circular(15),
+        ),
+      ),
       onDismissed: (DismissDirection direction) {
         Provider.of<CartModel>(context, listen: false)
             .removeAllItemsWithOneID(product.properties[selectedVolume]!.id);
@@ -28,7 +34,7 @@ class CartItemCard extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            margin: EdgeInsets.all(6),
+            margin: EdgeInsets.all(3),
             width: 102,
             child: AspectRatio(
               aspectRatio: 1,

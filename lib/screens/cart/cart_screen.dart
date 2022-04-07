@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 
 import '../../models/cart_model.dart';
@@ -13,6 +12,20 @@ class CartScreen extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(context),
       body: Body(),
+      bottomNavigationBar: Container(
+        height: 174,
+        decoration: const BoxDecoration(
+            color: Colors.white70,
+            borderRadius: BorderRadius.vertical(
+              top: Radius.circular(30),
+            ),
+            boxShadow: [
+              BoxShadow(
+                offset: Offset(0, -15),
+                blurRadius: 20,
+              )
+            ]),
+      ),
     );
   }
 
@@ -41,7 +54,9 @@ class CartScreen extends StatelessWidget {
       ),
       actions: [
         IconButton(
-          onPressed: () {Provider.of<CartModel>(context, listen: false).removeAll();},
+          onPressed: () {
+            Provider.of<CartModel>(context, listen: false).removeAll();
+          },
           icon: const Icon(Icons.restore_from_trash_sharp),
         )
       ],
