@@ -30,7 +30,9 @@ class CartModel extends ChangeNotifier {
     Map<Map<Perfumery, int>, int> unmodifiable_cart_list = {};
 
     itemIDcounter.keys.forEach((id) {
-      unmodifiable_cart_list.addAll({{searchByID(id)!: id} : itemIDcounter[id]!});
+      unmodifiable_cart_list.addAll({
+        {searchByID(id)!: id}: itemIDcounter[id]!
+      });
     });
 
     return unmodifiable_cart_list;
@@ -48,6 +50,12 @@ class CartModel extends ChangeNotifier {
       storage.remove(key);
     }
     _itemIDs_in_cart.clear();
+    notifyListeners();
+  }
+
+  void removeAllItemsWithOneID(int id) async {
+    _itemIDs_in_cart.removeWhere((value) => value == id);
+    saveState(_itemIDs_in_cart);
     notifyListeners();
   }
 

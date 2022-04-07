@@ -1,7 +1,8 @@
-
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../constants.dart';
+import '../../../models/cart_model.dart';
 import '../../../models/perfumery.dart';
 
 class CartItemCard extends StatelessWidget {
@@ -19,7 +20,11 @@ class CartItemCard extends StatelessWidget {
     var product = itemInCart.keys.toList().first;
     var selectedVolume = itemInCart.values.toList().first;
     return Dismissible(
-      key: Key(product.properties[selectedVolume]!.id.toString()),
+      onDismissed: (DismissDirection direction) {
+        Provider.of<CartModel>(context, listen: false)
+            .removeAllItemsWithOneID(product.properties[selectedVolume]!.id);
+      },
+      key: UniqueKey(),
       child: Row(
         children: [
           Container(
@@ -78,4 +83,3 @@ class CartItemCard extends StatelessWidget {
     );
   }
 }
-

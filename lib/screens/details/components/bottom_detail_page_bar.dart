@@ -1,6 +1,5 @@
 import 'package:beauty_online_shop/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import '../../../models/cart_model.dart';
 import '../../../models/perfumery.dart';
