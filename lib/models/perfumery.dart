@@ -11,7 +11,6 @@ class ProductInCart {
   });
 }
 
-
 class Perfumery {
   final String title, description;
   final Color color;
@@ -53,7 +52,6 @@ class PerfumeryProperties {
         price = input['price'],
         id = input['id'];
 }
-
 
 final Map<int, PerfumeryProperties> overallProperties = {
   0: PerfumeryProperties(
@@ -166,7 +164,7 @@ final List<Perfumery> perfumery = [
     brand: Brand.fromID(3),
   ),
   Perfumery(
-    properties: {6: overallProperties[7]!},
+    properties: {7: overallProperties[7]!},
     title: 'Amouage Imitation Man',
     description:
         'Portrayal Woman — стильный мужской древесно-ароматический аромат.\nПарфюм задуман, как отражение уникальной личности человека и освобождение от одиночества, которые общество устанавливает вокруг людей,  отличающихся от общей массы. Это парфюм для дерзких людей, которые осмеливаются бросить вызов нормам своего общества.\nСозданная парфюмером Пьер Негрином ароматическая композиция источает атмосферу изысканной смелости. С влажно-древесным, чуть землистым ветивером в сердце и пряной свежестью хрустящих листьев фиалки в верхних нотах парфюм производит роскошное, но при этом истинно мужское впечатление. Его легкая пряная грань обогащает древесно-хвойную можжевельковую базу, позволяя аромату отразить незабываемую просветляющую энергию.\nФирменный хрустальный флакон Amouage на этот раз представлен в переливающемся жемчужном цвете и  украшен голубым кристаллом Сваровски.',
@@ -175,3 +173,13 @@ final List<Perfumery> perfumery = [
     brand: Brand.fromID(1),
   ),
 ];
+
+Perfumery? searchByID(int id) {
+  Perfumery onSearchProduct = perfumery[0];
+  for (var product in perfumery) {
+    if (product.properties.keys.contains(id)) {
+      return product;
+    }
+  }
+  ;
+}
