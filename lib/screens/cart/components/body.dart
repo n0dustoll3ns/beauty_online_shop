@@ -58,8 +58,7 @@ class CartItemCard extends StatelessWidget {
           ),
         ),
         SizedBox(width: 16),
-        Padding(
-          padding: const EdgeInsets.all(kDefaultPaddin / 2),
+        Expanded(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,16 +66,14 @@ class CartItemCard extends StatelessWidget {
               Text(
                 product.title +
                     ' ' +
-                    product.properties[selectedVolume]!
-                        .volume +
+                    product.properties[selectedVolume]!.volume +
                     ' ml',
                 maxLines: 2,
                 overflow: TextOverflow.clip,
               ),
               Text.rich(
                 TextSpan(
-                  text:
-                      '\₽ ${product.properties[selectedVolume]!.price} ',
+                  text: '\₽ ${product.properties[selectedVolume]!.price} ',
                   style: TextStyle(
                     color: Colors.orangeAccent,
                     fontWeight: FontWeight.bold,

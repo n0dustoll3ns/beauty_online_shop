@@ -12,7 +12,7 @@ class CartModel extends ChangeNotifier {
   void loadState() async {
     var storage = await SharedPreferences.getInstance();
     var _itemStringIDs_in_cart = storage.getStringList('cart');
-    _itemStringIDs_in_cart.forEach((element) {
+    _itemStringIDs_in_cart!.forEach((element) {
       _itemIDs_in_cart.add(int.parse(element));
     });
     notifyListeners();
