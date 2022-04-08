@@ -22,7 +22,7 @@ class CartItemCard extends StatelessWidget {
     return Dismissible(
       background: Container(
         decoration: BoxDecoration(
-          color: Color(0XFFFFE6e6),
+          color: const Color(0XFFFFE6e6),
           borderRadius: BorderRadius.circular(15),
         ),
       ),
@@ -34,12 +34,12 @@ class CartItemCard extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            margin: EdgeInsets.all(3),
+            margin: const EdgeInsets.all(3),
             width: 102,
             child: AspectRatio(
               aspectRatio: 1,
               child: Container(
-                padding: EdgeInsets.all(kDefaultPaddin / 2),
+                padding: const EdgeInsets.all(kDefaultPaddin / 2),
                 decoration: BoxDecoration(
                     color: product.color,
                     borderRadius: BorderRadius.circular(12)),
@@ -47,7 +47,7 @@ class CartItemCard extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(width: 16),
+          const SizedBox(width: 16),
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -63,16 +63,15 @@ class CartItemCard extends StatelessWidget {
                 ),
                 Text.rich(
                   TextSpan(
-                    text: '\₽ ${product.properties[selectedVolume]!.price} ',
-                    style: TextStyle(
+                    text: "₽ ${product.properties[selectedVolume]!.price} ",
+                    style: const TextStyle(
                       color: Colors.orangeAccent,
                       fontWeight: FontWeight.bold,
                     ),
                     children: [
                       TextSpan(
                         text: '× $count ',
-                        children: [],
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black45,
                           fontWeight: FontWeight.normal,
                         ),
@@ -83,7 +82,7 @@ class CartItemCard extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(width: 16),
+          const SizedBox(width: 16),
         ],
       ),
     );

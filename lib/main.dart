@@ -5,7 +5,8 @@ import 'constants.dart';
 import 'models/cart_model.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(create: (context) => CartModel.fromStorage(),child: MyApp()));
+  runApp(ChangeNotifierProvider(
+      create: (context) => CartModel.fromStorage(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
           textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity),
-      home: HomeScreen(),
+      home: const HomeScreen(),
     );
   }
 }

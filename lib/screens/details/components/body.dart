@@ -48,8 +48,8 @@ class Body extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text('Volume'),
-                                Container(
+                                const Text('Volume'),
+                                SizedBox(
                                   height: 25,
                                   child: ListView.builder(
                                     scrollDirection: Axis.horizontal,
@@ -86,7 +86,7 @@ class Body extends StatelessWidget {
                                             borderRadius:
                                                 BorderRadius.circular(5.6),
                                             border: Border.all(
-                                              color: Color(0XFF000000),
+                                              color: const Color(0XFF000000),
                                             ),
                                           ),
                                         ),
@@ -100,11 +100,11 @@ class Body extends StatelessWidget {
                           Expanded(
                             child: RichText(
                               text: TextSpan(
-                                style: TextStyle(color: kTextColor),
+                                style: const TextStyle(color: kTextColor),
                                 children: [
-                                  TextSpan(text: "Brand\n"),
+                                  const TextSpan(text: "Brand\n"),
                                   TextSpan(
-                                    text: '${product.brand.name}',
+                                    text: product.brand.name,
                                     style:
                                         Theme.of(context).textTheme.headline6!,
                                   ),
@@ -114,7 +114,7 @@ class Body extends StatelessWidget {
                           ),
                         ],
                       ),
-                      CartCounter_w_FavBtn(),
+                      const CartCounterWithFavBtn(),
                       Container(
                           constraints:
                               BoxConstraints(minHeight: size.height / 3.7),

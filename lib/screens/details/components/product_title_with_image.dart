@@ -36,7 +36,7 @@ class ProductTitleWithImage extends StatelessWidget {
               RichText(
                 text: TextSpan(
                   children: [
-                    TextSpan(text: 'Price\n'),
+                    const TextSpan(text: 'Price\n'),
                     TextSpan(
                       text: '₽${properties.price}',
                       style: Theme.of(context).textTheme.headline4!.copyWith(

@@ -1,13 +1,14 @@
-import 'package:beauty_online_shop/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import '../../../models/cart_model.dart';
 import '../../../models/perfumery.dart';
+import '../../../constants.dart';
 
 class BottomDetailPageBar extends StatelessWidget {
   final Perfumery product;
   final int selectedVolume;
-  BottomDetailPageBar({
+  const BottomDetailPageBar({
     Key? key,
     required this.product,
     required this.selectedVolume,
@@ -20,7 +21,7 @@ class BottomDetailPageBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Container(
-            margin: EdgeInsets.all(kDefaultPaddin / 2),
+            margin: const EdgeInsets.all(kDefaultPaddin / 2),
             height: 40,
             width: 78,
             decoration: BoxDecoration(
@@ -40,7 +41,7 @@ class BottomDetailPageBar extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              margin: EdgeInsets.all(kDefaultPaddin / 2),
+              margin: const EdgeInsets.all(kDefaultPaddin / 2),
               height: 40,
               decoration: BoxDecoration(
                 color: product.color,
@@ -49,7 +50,7 @@ class BottomDetailPageBar extends StatelessWidget {
               ),
               child: IconButton(
                 onPressed: () {},
-                icon: Text(
+                icon: const Text(
                   'BUY NOW',
                   style: TextStyle(
                     fontSize: 16,

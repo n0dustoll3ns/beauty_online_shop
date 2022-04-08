@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../models/perfumery.dart';
 
 class CartModel extends ChangeNotifier {
-  List<int> _itemIDs_in_cart = [];
+  final List<int> itemIDsInCart = [];
   CartModel.fromStorage() {
     loadState();
   }
@@ -13,14 +13,14 @@ class CartModel extends ChangeNotifier {
     var storage = await SharedPreferences.getInstance();
     var itemStringIDsInCart = storage.getStringList('cart');
     for (var element in itemStringIDsInCart!) {
-      _itemIDs_in_cart.add(int.parse(element));
+      itemIDsInCart.add(int.parse(element));
     }
     notifyListeners();
   }
 
   Map<Map<Perfumery, int>, int> getUnmodifiableCartList() {
     Map<int, int> itemIDcounter = {};
-    for (var id in _itemIDs_in_cart) {
+    for (var id in itemIDsInCart) {
       if (!itemIDcounter.containsKey(id)) {
         itemIDcounter[id] = 1;
       } else {
@@ -40,16 +40,15 @@ class CartModel extends ChangeNotifier {
 
   int gettotalPrice() {
     int totalPrice = 0;
-    for (var id in _itemIDs_in_cart) {
-      var product = searchByID(id)!;
+    for (var id in itemIDsInCart) {
       totalPrice = totalPrice + searchByID(id)!.properties[id]!.price;
     }
     return totalPrice;
   }
 
   void add(Perfumery item, int index) {
-    _itemIDs_in_cart.add(item.properties[index]!.id);
-    saveState(_itemIDs_in_cart);
+    itemIDsInCart.add(item.properties[index]!.id);
+    saveState(itemIDsInCart);
     notifyListeners();
   }
 
@@ -58,13 +57,13 @@ class CartModel extends ChangeNotifier {
     for (var key in storage.getKeys()) {
       storage.remove(key);
     }
-    _itemIDs_in_cart.clear();
+    itemIDsInCart.clear();
     notifyListeners();
   }
 
   void removeAllItemsWithOneID(int id) async {
-    _itemIDs_in_cart.removeWhere((value) => value == id);
-    saveState(_itemIDs_in_cart);
+    itemIDsInCart.removeWhere((value) => value == id);
+    saveState(itemIDsInCart);
     notifyListeners();
   }
 

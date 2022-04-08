@@ -1,4 +1,4 @@
-import 'package:beauty_online_shop/screens/details/detailScreen.dart';
+import 'package:beauty_online_shop/screens/details/detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:beauty_online_shop/constants.dart';
 import 'package:beauty_online_shop/models/perfumery.dart';
@@ -24,13 +24,13 @@ class Body extends StatelessWidget {
                 .copyWith(fontWeight: FontWeight.bold),
           ),
         ),
-        Categories(),
+        const Categories(),
         Expanded(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
             child: GridView.builder(
               itemCount: perfumery.length,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 childAspectRatio: 0.72,
                 crossAxisSpacing: kDefaultPaddin,

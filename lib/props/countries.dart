@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class Country {
   int id;
   final String name;
@@ -10,11 +8,11 @@ class Country {
   static fromID(
     int id
   ) {
-    return Countries[id];
+    return countries[id];
   }
 }
 
-List<Country> Countries = [
+List<Country> countries = [
   Country(id: 0, name: 'Italy'),
   Country(id: 1, name: 'France'),
   Country(id: 2, name: 'Oman'),

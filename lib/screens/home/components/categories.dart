@@ -40,7 +40,7 @@ class _CategoriesState extends State<Categories> {
                   ),
                   Container(
                     margin:
-                        EdgeInsets.only(top: kDefaultPaddin / 4), //top padding
+                        const EdgeInsets.only(top: kDefaultPaddin / 4), //top padding
                     height: 2,
                     width: 30,
                     color: _selectedCategory == index

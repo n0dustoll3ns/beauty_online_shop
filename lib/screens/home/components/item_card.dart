@@ -27,7 +27,7 @@ class _ProductCardState extends State<ProductCard> {
           AspectRatio(
             aspectRatio: 1 / 1,
             child: Container(
-              padding: EdgeInsets.all(kDefaultPaddin),
+              padding: const EdgeInsets.all(kDefaultPaddin),
               decoration: BoxDecoration(
                   color: widget.product.color,
                   borderRadius: BorderRadius.circular(16)),

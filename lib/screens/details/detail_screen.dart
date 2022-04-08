@@ -9,7 +9,7 @@ import 'components/body.dart';
 
 class DetailPage extends StatefulWidget {
   final Perfumery product;
-  DetailPage({Key? key, required this.product}) : super(key: key);
+  const DetailPage({Key? key, required this.product}) : super(key: key);
 
   @override
   State<DetailPage> createState() => _DetailPageState();
@@ -25,7 +25,7 @@ class _DetailPageState extends State<DetailPage> {
         backgroundColor: widget.product.color,
         elevation: 0,
         actions: <Widget>[
-          IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
           Stack(
             alignment: Alignment.center,
             children: [
@@ -34,16 +34,16 @@ class _DetailPageState extends State<DetailPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => CartScreen(),
+                      builder: (context) => const CartScreen(),
                     ),
                   );
                 },
-                icon: Icon(Icons.shopping_bag_outlined),
+                icon: const Icon(Icons.shopping_bag_outlined),
               ),
-              EmptynessIndicatorOfCart(),
+              const EmptynessIndicatorOfCart(),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             width: kDefaultPaddin / 2,
           ),
         ],

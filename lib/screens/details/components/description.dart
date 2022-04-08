@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../models/perfumery.dart';
 
 class Description extends StatelessWidget {
@@ -12,7 +13,7 @@ class Description extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      '${product.description}',
+      product.description,
     );
   }
 }

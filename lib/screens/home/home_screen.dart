@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
-      body: Body(),
+      body: const Body(),
     );
   }
 }
@@ -21,17 +21,17 @@ AppBar buildAppBar(context) {
     backgroundColor: Colors.white,
     elevation: 0,
     leading: IconButton(
-      icon: Icon(Icons.arrow_back),
+      icon: const Icon(Icons.arrow_back),
       onPressed: () {},
       color: kTextColor,
     ),
-    actionsIconTheme: IconThemeData(
+    actionsIconTheme: const IconThemeData(
       color: kTextColor,
     ),
     actions: [
       IconButton(
         onPressed: () {},
-        icon: Icon(Icons.search),
+        icon: const Icon(Icons.search),
       ),
       Stack(
         alignment: Alignment.center,
@@ -41,16 +41,16 @@ AppBar buildAppBar(context) {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => CartScreen(),
+                  builder: (context) => const CartScreen(),
                 ),
               );
             },
-            icon: Icon(Icons.shopping_bag_outlined),
+            icon: const Icon(Icons.shopping_bag_outlined),
           ),
-          EmptynessIndicatorOfCart(),
+          const EmptynessIndicatorOfCart(),
         ],
       ),
-      SizedBox(
+      const SizedBox(
         width: kDefaultPaddin / 2,
       ),
     ],

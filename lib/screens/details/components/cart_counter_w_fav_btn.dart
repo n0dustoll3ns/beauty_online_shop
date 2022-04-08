@@ -1,7 +1,7 @@
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:beauty_online_shop/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../../../constants.dart';
 
 class CartCounter extends StatefulWidget {
   const CartCounter({Key? key}) : super(key: key);
@@ -20,16 +20,17 @@ class _CartCounterState extends State<CartCounter> {
         buildOutlinedButton(
           icon: Icons.remove,
           press: () {
-            if (numOfItems > 1)
+            if (numOfItems > 1) {
               setState(
                 () {
                   numOfItems--;
                 },
               );
+            }
           },
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: kDefaultPaddin / 2),
+          padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin / 2),
           child: Text(
             numOfItems.toString().padLeft(2, ""),
             style: Theme.of(context).textTheme.headline6!,
@@ -52,7 +53,7 @@ class _CartCounterState extends State<CartCounter> {
   Container buildOutlinedButton(
       {required IconData icon, required Function() press}) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: kDefaultPaddin / 2),
+      padding: const EdgeInsets.symmetric(vertical: kDefaultPaddin / 2),
       child: OutlinedButton(
         onPressed: press,
         child: Icon(
@@ -64,7 +65,7 @@ class _CartCounterState extends State<CartCounter> {
           shape: MaterialStateProperty.all(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12.0),
-              side: BorderSide(color: Colors.black54),
+              side: const BorderSide(color: Colors.black54),
             ),
           ),
         ),
@@ -73,8 +74,8 @@ class _CartCounterState extends State<CartCounter> {
   }
 }
 
-class CartCounter_w_FavBtn extends StatelessWidget {
-  const CartCounter_w_FavBtn({
+class CartCounterWithFavBtn extends StatelessWidget {
+  const CartCounterWithFavBtn({
     Key? key,
   }) : super(key: key);
 
@@ -83,12 +84,13 @@ class CartCounter_w_FavBtn extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        CartCounter(),
+        const CartCounter(),
         Container(
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           height: 32,
           width: 32,
-          decoration: BoxDecoration(color: Colors.red, shape: BoxShape.circle),
+          decoration:
+              const BoxDecoration(color: Colors.red, shape: BoxShape.circle),
           child: SvgPicture.asset("assets/icons/heart.svg"),
         )
       ],

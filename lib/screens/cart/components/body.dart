@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:beauty_online_shop/models/cart_model.dart';
 import 'package:provider/provider.dart';
 
+import '../../../models/cart_model.dart';
 import 'itemcard.dart';
 
 class Body extends StatelessWidget {
