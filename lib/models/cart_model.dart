@@ -20,22 +20,37 @@ class CartModel extends ChangeNotifier {
 
   Map<Map<Perfumery, int>, int> getUnmodifiable_cart_list() {
     Map<int, int> itemIDcounter = {};
-    _itemIDs_in_cart.forEach((id) {
-      if (!itemIDcounter.containsKey(id)) {
-        itemIDcounter[id] = 1;
-      } else {
-        itemIDcounter.update(id, (value) => value + 1);
-      }
-    });
+    _itemIDs_in_cart.forEach(
+      (id) {
+        if (!itemIDcounter.containsKey(id)) {
+          itemIDcounter[id] = 1;
+        } else {
+          itemIDcounter.update(id, (value) => value + 1);
+        }
+      },
+    );
     Map<Map<Perfumery, int>, int> unmodifiable_cart_list = {};
-
-    itemIDcounter.keys.forEach((id) {
-      unmodifiable_cart_list.addAll({
-        {searchByID(id)!: id}: itemIDcounter[id]!
-      });
-    });
-
+    itemIDcounter.keys.forEach(
+      (id) {
+        unmodifiable_cart_list.addAll(
+          {
+            {searchByID(id)!: id}: itemIDcounter[id]!
+          },
+        );
+      },
+    );
     return unmodifiable_cart_list;
+  }
+
+  int gettotalPrice() {
+    int totalPrice = 0;
+    _itemIDs_in_cart.forEach(
+      (id) {
+        var product = searchByID(id)!;
+        totalPrice = totalPrice + searchByID(id)!.properties[id]!.price;
+      },
+    );
+    return totalPrice;
   }
 
   void add(Perfumery item, int index) {

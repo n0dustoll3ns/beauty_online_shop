@@ -1,7 +1,12 @@
+import 'dart:math';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
+import 'package:number_slide_animation/number_slide_animation.dart';
 
+import '../../constants.dart';
 import '../../models/cart_model.dart';
 import 'components/body.dart';
 
@@ -67,37 +72,106 @@ class CheckOutBottomBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(
-        vertical: 5,
-        horizontal: 5,
+        vertical: kDefaultPaddin,
+        horizontal: kDefaultPaddin,
       ),
-      height: 174,
       decoration: BoxDecoration(
-          color: Colors.white70,
-          borderRadius: BorderRadius.vertical(
-            top: Radius.circular(30),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(30),
+          topRight: Radius.circular(30),
+        ),
+        color: Colors.white70,
+        boxShadow: [
+          BoxShadow(
+            offset: Offset(0, -15),
+            blurRadius: 20,
+            color: Color(0xFFaaaaaa).withOpacity(0.45),
           ),
-          boxShadow: [
-            BoxShadow(
-              offset: Offset(0, -15),
-              blurRadius: 20,
-              color: Color(0xFFDADADA).withOpacity(0.15),
-            )
-          ]),
+        ],
+      ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Row(
             children: [
               Container(
-                height: 40,
-                width: 40,
+                height: 50,
+                width: 50,
+                padding: EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: Color(0xFFF5F6F9),
+                  borderRadius: BorderRadius.circular(8),
+                  color: Color(0xFFe5e6e9),
                 ),
+                child: SvgPicture.asset(
+                  "assets/icons/receipt.svg",
+                  color: Colors.orange,
+                ),
+              ),
+              Spacer(),
+              Text("Add voucher code"),
+              SizedBox(
+                width: 10,
+              ),
+              Icon(
+                Icons.arrow_forward_ios_sharp,
+                size: 14,
               )
             ],
           ),
+          SizedBox(
+            height: kDefaultPaddin / 2,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Consumer<CartModel>(
+                builder: (context, cart, child) {
+                  var cartlist = cart.getUnmodifiable_cart_list();
+                  return Text.rich(
+                    TextSpan(
+                      text: "Total:\n",
+                      children: [
+                        TextSpan(
+                          text: "₽ ${cart.gettotalPrice()}",
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+              Spacer(),
+              Container(
+                width: 180,
+                decoration: BoxDecoration(
+                  color: Colors.grey,
+                  borderRadius: BorderRadius.circular(18),
+                  border: Border.all(
+                    color: Color(0xFFe5e6e9),
+                  ),
+                ),
+                padding: EdgeInsets.all(10),
+                child: IconButton(
+                  padding: const EdgeInsets.all(2.0),
+                  icon: Text(
+                    "Check Out",
+                    style: TextStyle(
+                      color: Color(0xFFe5e6e9),
+                    ),
+                  ),
+                  onPressed: () {},
+                ),
+              ),
+              Spacer(),
+            ],
+          )
         ],
       ),
     );
   }
 }
+
+
