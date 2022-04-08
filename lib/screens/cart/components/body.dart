@@ -11,7 +11,7 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<CartModel>(
       builder: (context, cart, child) {
-        var cartlist = cart.getUnmodifiable_cart_list();
+        var cartlist = cart.getUnmodifiableCartList();
         return ListView.builder(
           itemCount: cartlist.length,
           itemBuilder: (context, index) {

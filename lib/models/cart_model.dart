@@ -11,45 +11,39 @@ class CartModel extends ChangeNotifier {
 
   void loadState() async {
     var storage = await SharedPreferences.getInstance();
-    var _itemStringIDs_in_cart = storage.getStringList('cart');
-    _itemStringIDs_in_cart!.forEach((element) {
+    var itemStringIDsInCart = storage.getStringList('cart');
+    for (var element in itemStringIDsInCart!) {
       _itemIDs_in_cart.add(int.parse(element));
-    });
+    }
     notifyListeners();
   }
 
-  Map<Map<Perfumery, int>, int> getUnmodifiable_cart_list() {
+  Map<Map<Perfumery, int>, int> getUnmodifiableCartList() {
     Map<int, int> itemIDcounter = {};
-    _itemIDs_in_cart.forEach(
-      (id) {
-        if (!itemIDcounter.containsKey(id)) {
-          itemIDcounter[id] = 1;
-        } else {
-          itemIDcounter.update(id, (value) => value + 1);
-        }
-      },
-    );
-    Map<Map<Perfumery, int>, int> unmodifiable_cart_list = {};
-    itemIDcounter.keys.forEach(
-      (id) {
-        unmodifiable_cart_list.addAll(
-          {
-            {searchByID(id)!: id}: itemIDcounter[id]!
-          },
-        );
-      },
-    );
-    return unmodifiable_cart_list;
+    for (var id in _itemIDs_in_cart) {
+      if (!itemIDcounter.containsKey(id)) {
+        itemIDcounter[id] = 1;
+      } else {
+        itemIDcounter.update(id, (value) => value + 1);
+      }
+    }
+    Map<Map<Perfumery, int>, int> unmodifiableCartList = {};
+    for (var id in itemIDcounter.keys) {
+      unmodifiableCartList.addAll(
+        {
+          {searchByID(id)!: id}: itemIDcounter[id]!
+        },
+      );
+    }
+    return unmodifiableCartList;
   }
 
   int gettotalPrice() {
     int totalPrice = 0;
-    _itemIDs_in_cart.forEach(
-      (id) {
-        var product = searchByID(id)!;
-        totalPrice = totalPrice + searchByID(id)!.properties[id]!.price;
-      },
-    );
+    for (var id in _itemIDs_in_cart) {
+      var product = searchByID(id)!;
+      totalPrice = totalPrice + searchByID(id)!.properties[id]!.price;
+    }
     return totalPrice;
   }
 
@@ -74,13 +68,13 @@ class CartModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void saveState(List<int> _itemIDs_in_cart) async {
+  void saveState(List<int> itemIDsInCart) async {
     var storage = await SharedPreferences.getInstance();
     storage.setStringList('cart', []);
     List<String> itemsStringList = [];
-    _itemIDs_in_cart.forEach((value) {
+    for (var value in itemIDsInCart) {
       itemsStringList.add(value.toString());
-    });
+    }
     storage.setStringList('cart', itemsStringList);
   }
 }

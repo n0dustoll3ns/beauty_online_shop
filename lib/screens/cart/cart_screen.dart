@@ -1,10 +1,6 @@
-import 'dart:math';
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
-import 'package:number_slide_animation/number_slide_animation.dart';
 
 import '../../constants.dart';
 import '../../models/cart_model.dart';
@@ -17,8 +13,8 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
-      body: Body(),
-      bottomNavigationBar: CheckOutBottomBar(),
+      body: const Body(),
+      bottomNavigationBar: const CheckOutBottomBar(),
     );
   }
 
@@ -38,7 +34,7 @@ class CartScreen extends StatelessWidget {
             ),
             Consumer<CartModel>(
               builder: (context, cart, child) {
-                return Text('${cart.getUnmodifiable_cart_list().length} items',
+                return Text('${cart.getUnmodifiableCartList().length} items',
                     style: Theme.of(context).textTheme.caption);
               },
             ),
@@ -71,12 +67,12 @@ class CheckOutBottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         vertical: kDefaultPaddin,
         horizontal: kDefaultPaddin,
       ),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(30),
           topRight: Radius.circular(30),
         ),
@@ -107,43 +103,45 @@ class CheckOutBottomBar extends StatelessWidget {
                   color: Colors.orange,
                 ),
               ),
-              Spacer(),
-              Text("Add voucher code"),
-              SizedBox(
+              const Spacer(),
+              const Text("Add voucher code"),
+              const SizedBox(
                 width: 10,
               ),
-              Icon(
+              const Icon(
                 Icons.arrow_forward_ios_sharp,
                 size: 14,
               )
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: kDefaultPaddin / 2,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Consumer<CartModel>(
-                builder: (context, cart, child) {
-                  var cartlist = cart.getUnmodifiable_cart_list();
-                  return Text.rich(
-                    TextSpan(
-                      text: "Total:\n",
-                      children: [
-                        TextSpan(
-                          text: "₽ ${cart.gettotalPrice()}",
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  const Text(
+                    "Total:\n",
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
                     ),
-                  );
-                },
+                  ),
+                  Consumer<CartModel>(
+                    builder: (context, cart, child) {
+                      return Text(
+                        "₽ ${cart.gettotalPrice()}",
+                      );
+                    },
+                  ),
+                ],
               ),
-              Spacer(),
+              const Spacer(),
               Container(
                 width: 180,
                 decoration: BoxDecoration(
@@ -156,7 +154,7 @@ class CheckOutBottomBar extends StatelessWidget {
                 padding: EdgeInsets.all(10),
                 child: IconButton(
                   padding: const EdgeInsets.all(2.0),
-                  icon: Text(
+                  icon: const Text(
                     "Check Out",
                     style: TextStyle(
                       color: Color(0xFFe5e6e9),
@@ -165,7 +163,7 @@ class CheckOutBottomBar extends StatelessWidget {
                   onPressed: () {},
                 ),
               ),
-              Spacer(),
+              const Spacer(),
             ],
           )
         ],
@@ -173,5 +171,3 @@ class CheckOutBottomBar extends StatelessWidget {
     );
   }
 }
-
-
