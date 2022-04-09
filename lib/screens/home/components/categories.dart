@@ -21,9 +21,11 @@ class _CategoriesState extends State<Categories> {
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
             onTap: () {
-              setState(() {
-                _selectedCategory = index;
-              });
+              setState(
+                () {
+                  _selectedCategory = index;
+                },
+              );
             },
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
@@ -39,8 +41,8 @@ class _CategoriesState extends State<Categories> {
                             : kTextLightColor),
                   ),
                   Container(
-                    margin:
-                        const EdgeInsets.only(top: kDefaultPaddin / 4), //top padding
+                    margin: const EdgeInsets.only(
+                        top: kDefaultPaddin / 4), //top padding
                     height: 2,
                     width: 30,
                     color: _selectedCategory == index
