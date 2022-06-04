@@ -81,7 +81,7 @@ class CheckOutBottomBar extends StatelessWidget {
                   Consumer<CartModel>(
                     builder: (context, cart, child) {
                       return Text(
-                        "₽ ${cart.gettotalPrice()}",
+                        "₽ ${cart.totalPrice}",
                       );
                     },
                   ),

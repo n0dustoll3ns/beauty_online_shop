@@ -27,6 +27,7 @@ class Perfumery {
   });
 }
 
+
 class PerfumeryProperties {
   final String volume, image;
   final int count, price, id;
@@ -35,7 +36,9 @@ class PerfumeryProperties {
     required this.price,
     required this.id,
     required this.count,
-  }) : image = 'assets/images/$id.png';
+  }) : image = 'assets/images/$id.png' {
+    print('new pc Created');
+  }
 
   Map toJson() => {
         'volume': volume,

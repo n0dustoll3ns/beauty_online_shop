@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../models/perfumery.dart';
 
 class CartModel extends ChangeNotifier {
-  final List<int> itemIDsInCart = [];
+  final List<int> _itemIDsInCart = [];
   CartModel.fromStorage() {
     loadState();
   }
@@ -13,14 +13,14 @@ class CartModel extends ChangeNotifier {
     var storage = await SharedPreferences.getInstance();
     var itemStringIDsInCart = storage.getStringList('cart');
     for (var element in itemStringIDsInCart!) {
-      itemIDsInCart.add(int.parse(element));
+      _itemIDsInCart.add(int.parse(element));
     }
     notifyListeners();
   }
 
   Map<Map<Perfumery, int>, int> getUnmodifiableCartList() {
     Map<int, int> itemIDcounter = {};
-    for (var id in itemIDsInCart) {
+    for (var id in _itemIDsInCart) {
       if (!itemIDcounter.containsKey(id)) {
         itemIDcounter[id] = 1;
       } else {
@@ -38,17 +38,17 @@ class CartModel extends ChangeNotifier {
     return unmodifiableCartList;
   }
 
-  int gettotalPrice() {
+  int get totalPrice {
     int totalPrice = 0;
-    for (var id in itemIDsInCart) {
-      totalPrice = totalPrice + searchByID(id)!.properties[id]!.price;
+    for (var id in _itemIDsInCart) {
+      totalPrice += searchByID(id)!.properties[id]!.price;
     }
     return totalPrice;
   }
 
   void add(Perfumery item, int index) {
-    itemIDsInCart.add(item.properties[index]!.id);
-    saveState(itemIDsInCart);
+    _itemIDsInCart.add(item.properties[index]!.id);
+    saveState(_itemIDsInCart);
     notifyListeners();
   }
 
@@ -57,13 +57,13 @@ class CartModel extends ChangeNotifier {
     for (var key in storage.getKeys()) {
       storage.remove(key);
     }
-    itemIDsInCart.clear();
+    _itemIDsInCart.clear();
     notifyListeners();
   }
 
   void removeAllItemsWithOneID(int id) async {
-    itemIDsInCart.removeWhere((value) => value == id);
-    saveState(itemIDsInCart);
+    _itemIDsInCart.removeWhere((value) => value == id);
+    saveState(_itemIDsInCart);
     notifyListeners();
   }
 
