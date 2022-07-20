@@ -32,17 +32,11 @@ void main() {
   });
   test('calculating total price', () {
     expect(testcart.totalPrice, 249000);
-  });
-  test('calculating total price', () {
     expect(testcart2.totalPrice, 174450);
-  });
-  test('calculating total price', () {
+    expect(testcart2.totalPrice, 174450);
     expect(testcart3.totalPrice, 137467);
-  });
-  test('calculating total price', () {
     expect(testcart4.totalPrice, 295950);
-  });
-  test('calculating total price', () {
+
     expect(testcart5.totalPrice, 290434);
   });
 }
