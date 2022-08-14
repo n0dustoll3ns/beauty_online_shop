@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:beauty_online_shop/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -15,12 +17,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    var asdfasdf = Random().nextInt(10);
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.red,
           visualDensity: VisualDensity.adaptivePlatformDensity),
       home: const HomeScreen(),
     );
